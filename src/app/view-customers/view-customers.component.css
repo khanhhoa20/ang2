@@ -1,0 +1,13 @@
+.title{
+    color:red
+}
+table {
+  border-collapse: collapse;
+  }
+  
+td, th {
+    border: 1px solid #6b6a6a;
+    text-align: left;
+    padding: 8px;
+  }
+  

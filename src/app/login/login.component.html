@@ -1,0 +1,24 @@
+<p class="title">Login</p>
+<form #myForm="ngForm" (ngSubmit)="submit(myForm)">
+    <table>
+        <tr>
+            <th>Username</th>
+            <td><input type="text" name="username" ngModel required #username="ngModel" /></td>
+            <td style="color: rgb(124, 124, 234);" *ngIf="username.errors?.['required']">Name is required</td>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <td><input type="password" name="password" ngModel #password="ngModel" required /></td>
+            <td style="color: rgb(124, 124, 234);" *ngIf="password.errors?.['required']">Password is required</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <button type="submit" [disabled]="myForm.invalid">Submit</button>
+        </tr>
+    </table>
+</form>
+<p>{{result}}</p>

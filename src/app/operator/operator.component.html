@@ -1,0 +1,26 @@
+<p class="title">Operator List</p>
+<table>
+    <tr>
+        <th>No</th>
+        <th>Operator ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Status</th>
+        <th>UserName</th>
+        <th>Role</th>
+        <th>Department Name</th>
+    </tr>
+    <tr *ngFor=" let o of operators; let i=index">
+        <td>{{i}}</td>
+        <td>{{o.operatorID}}</td>
+        <td>{{o.operName}}</td>
+        <td>{{o.operPhone}}</td>
+        <td>{{o.operAddress}}</td>
+        <td>{{o.operatorStatus}}</td>
+        <td>{{o.user.userName}}</td>
+        <td>{{o.user.role}}</td>
+        <td>{{o.department.departmentName}}</td>
+    </tr>
+
+</table>

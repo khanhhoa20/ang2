@@ -1,0 +1,11 @@
+<p class="title">Unlock Bank Account</p>
+
+<form #myForm="ngForm" (ngSubmit)="submit(myForm)">
+    <label><b>Enter customer phone to unlock</b></label><br>
+    <input type="text" class="input" name="cusPhone" #cusPhone="ngModel" ngModel required><br>
+    <button type="submit" [disabled]="myForm.invalid">Unlock bank account</button>
+    <span style="color: rgb(124, 124, 234);
+    margin-left: 10px;
+    " *ngIf="cusPhone.errors?.['required']">Please enter customer phone</span>
+</form>
+<p>{{messageResult}}</p>
