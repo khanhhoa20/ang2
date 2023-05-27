@@ -1,0 +1,28 @@
+<p class="title">Deposit money</p>
+<form #myForm="ngForm" (ngSubmit)="submit(myForm)">
+    <table>
+        <tr>
+            <th>Enter customer phone</th>
+            <td>
+                <input class="input" type="text" name="phone" ngModel required>
+            </td>
+        </tr>
+        <tr>
+            <th>Enter the amount</th>
+            <td>
+                <input class="input" type="text" name="money" ngModel required pattern="[0-9]*">
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                <button class="submit-bt" type="submit" [disabled]="myForm.invalid">
+                    Deposit
+                </button>
+
+                <span *ngIf="myForm.invalid" class="error">Please enter available phone and amount</span>
+            </td>
+        </tr>
+    </table>
+</form>
+<p class="mess">{{message}}</p>

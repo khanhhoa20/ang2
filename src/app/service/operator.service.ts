@@ -13,6 +13,8 @@ export class OperatorService {
   loginUrl = "operator/login"
   unlockBankAccountUrl = "operator/unlock-bank-account"
   viewCustomersUrl = "operator/view-customer-list"
+  lockBankAccountUrl = "operator/lock-bank-account"
+  depositMoneyUrl = "operator/deposit"
 
   constructor(private http: HttpClient) { }
 
@@ -41,5 +43,25 @@ export class OperatorService {
     return this.http.get<Array<BankAccount>>(`${this.url}/${this.viewCustomersUrl}`)
   }
 
+  lockBankAccount(cusPhone: string): Observable<string> {
+    return this.http.post(`${this.url}/${this.lockBankAccountUrl}`, {
+      "customerPhone": cusPhone
+    }, {
+      responseType: 'text'
+    })
+  }
+
+  depositMoney(amount: number, cusPhone: string): Observable<string> {
+    return this.http.put(`${this.url}/${this.depositMoneyUrl}`, {
+      "transactionAmount": amount,
+      "bankAccount": {
+        "customer": {
+          "customerPhone": cusPhone
+        }
+      }
+    }, {
+      responseType: 'text'
+    })
+  }
 
 }

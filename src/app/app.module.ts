@@ -9,6 +9,10 @@ import { OperatorComponent } from './operator/operator.component';
 import { LoginComponent } from './login/login.component';
 import { UnlockBankAccountComponent } from './unlock-bank-account/unlock-bank-account.component';
 import { ViewCustomersComponent } from './view-customers/view-customers.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LockBankAccountComponent } from './lock-bank-account/lock-bank-account.component';
+import { DepositMoneyComponent } from './deposit-money/deposit-money.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,12 +20,16 @@ import { ViewCustomersComponent } from './view-customers/view-customers.componen
     OperatorComponent,
     LoginComponent,
     UnlockBankAccountComponent,
-    ViewCustomersComponent
+    ViewCustomersComponent,
+    LockBankAccountComponent,
+    DepositMoneyComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [OperatorService],
   bootstrap: [AppComponent]
