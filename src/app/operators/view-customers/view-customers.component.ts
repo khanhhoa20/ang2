@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { OperatorService } from '../service/operator.service';
-import { BankAccount } from '../model/bank-account';
+import { BankAccount } from 'src/app/model/bank-account';
+import { OperatorService } from 'src/app/service/operator.service';
+
 
 @Component({
   selector: 'app-view-customers',

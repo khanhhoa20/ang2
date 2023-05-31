@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { OperatorService } from '../service/operator.service';
+// import { OperatorService } from '../service/operator.service';
 import { NgForm } from '@angular/forms';
+import { OperatorService } from 'src/app/service/operator.service';
 
 @Component({
   selector: 'app-lock-bank-account',

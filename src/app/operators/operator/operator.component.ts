@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { OperatorService } from '../service/operator.service';
-import { Operator } from '../model/operator';
+import { Operator } from 'src/app/model/operator';
+import { OperatorService } from 'src/app/service/operator.service';
+// import { OperatorService } from '../service/operator.service';
+// import { Operator } from '../model/operator';
 
 @Component({
   selector: 'app-operator',
