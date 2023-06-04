@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 // import { OperatorComponent } from './operator/operator.component';
 import { LoginComponent } from './login/login.component';
-import { DefaultComponent } from './layout/default/default.component';
+import { DefaultComponent } from './layout/operator/default/default.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OperatorComponent } from './operators/operator/operator.component';
 
