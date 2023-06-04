@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.operService.login(this.username, this.password).subscribe(data => {
       this.result = data
       if (data.includes("operator")) {
-        this.router?.navigateByUrl("operator/view-list-operator")
+        this.router?.navigateByUrl("operator/view-list-customer")
       }
     })
   }
