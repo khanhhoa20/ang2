@@ -32,6 +32,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarComponent } from './shared/components/operator/sidebar/sidebar.component';
+import { CreateBankAccountComponent } from './customer/create-bank-account/create-bank-account.component';
 
 
 
@@ -48,7 +49,8 @@ import { SidebarComponent } from './shared/components/operator/sidebar/sidebar.c
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    CreateBankAccountComponent
   ],
   imports: [
     BrowserModule,
