@@ -32,6 +32,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarComponent } from './shared/components/operator/sidebar/sidebar.component';
+import { CreateBankAccountComponent } from './operators/create-bank-account/create-bank-account.component';
+import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
 import { CreateBankAccountComponent } from './customer/create-bank-account/create-bank-account.component';
 
 
@@ -49,8 +51,7 @@ import { CreateBankAccountComponent } from './customer/create-bank-account/creat
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent,
-    CreateBankAccountComponent
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
