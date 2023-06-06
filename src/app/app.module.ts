@@ -34,7 +34,12 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarComponent } from './shared/components/operator/sidebar/sidebar.component';
 import { CreateBankAccountComponent } from './operators/create-bank-account/create-bank-account.component';
 import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
-import { CreateBankAccountComponent } from './customer/create-bank-account/create-bank-account.component';
+// import { CreateBankAccountComponent } from './customer/create-bank-account/create-bank-account.component';
+import { RegisterCreateBankAccountComponent } from './customer/register-create-bank-account/register-create-bank-account.component';
+import { GetAllAccountComponent } from './customer/get-all-account/get-all-account.component';
+import { ChangeAccountPasswordComponent } from './customer/change-account-password/change-account-password.component';
+import { UpdateAccountInformationComponent } from './customer/update-account-information/update-account-information.component';
+import { FindAccountByIdStkComponent } from './customer/find-account-by-id-stk/find-account-by-id-stk.component';
 
 
 
@@ -51,7 +56,12 @@ import { CreateBankAccountComponent } from './customer/create-bank-account/creat
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    RegisterCreateBankAccountComponent,
+    GetAllAccountComponent,
+    ChangeAccountPasswordComponent,
+    UpdateAccountInformationComponent,
+    FindAccountByIdStkComponent
   ],
   imports: [
     BrowserModule,
