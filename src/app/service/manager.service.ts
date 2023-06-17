@@ -10,6 +10,11 @@ export class ManagerService {
   viewAllOperatorUrl = "manager/listAllOperator"
   loginUrl = "manager/login"
 
+  private scheduleApiUrl: string = 'http://localhost:9090/tpbank/manager';
+  private addScheduleApiUrl: string = 'http://localhost:9090/tpbank/manager/addSchedulePlan';
+  private delScheduleApiUrl: string = 'http://localhost:9090/tpbank/manager/deleteSchedulePlan/';
+  private updateScheduleApiUrl: string = 'http://localhost:9090/tpbank/manager/updateSchedulePlan/';
+
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<string> {
@@ -20,4 +25,22 @@ export class ManagerService {
       { responseType: 'text' }
     )
   }
+
+  //--schedule-plan
+  getApiUrl(): string {
+    return this.scheduleApiUrl;
+  }
+
+  postApiUrl(): string {
+    return this.addScheduleApiUrl;
+  }
+
+  deleteApiUrl(): string {
+    return this.delScheduleApiUrl;
+  }
+
+  putApiUrl(): string {
+    return this.updateScheduleApiUrl;
+  }
+  //--
 }

@@ -19,6 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 
 import { AppComponent } from './app.component';
 import { OperatorService } from './service/operator.service';
+import { ManagerService } from './service/manager.service';
 import { OperatorComponent } from './operators/operator/operator.component';
 import { LoginComponent } from './login/login.component';
 import { UnlockBankAccountComponent } from './operators/unlock-bank-account/unlock-bank-account.component';
@@ -39,7 +40,9 @@ import { ListOperatorComponent } from './manager/list-operator/list-operator.com
 import { SchedulePlanComponent } from './manager/schedule-plan/schedule-plan.component';
 import { ManagerSidebarComponent } from './shared/components/manager/manager-sidebar/manager-sidebar.component';
 
-
+// date-picker
+//https://github.com/fetrarij/ngx-daterangepicker-material
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
 @NgModule({
   declarations: [
@@ -79,9 +82,10 @@ import { ManagerSidebarComponent } from './shared/components/manager/manager-sid
     FlexLayoutModule,
     MatMenuModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    NgxDaterangepickerMd.forRoot()
   ],
-  providers: [OperatorService],
+  providers: [OperatorService, ManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

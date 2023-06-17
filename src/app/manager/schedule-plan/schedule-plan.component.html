@@ -1,1 +1,87 @@
-<p>schedule-plan works!</p>
+<!-- <p>schedule-plan works!</p> -->
+<div *ngIf="showList">
+    <h2>List scheduleplans</h2>
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Info</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Initial Date</th>
+                <!-- <th>Department</th> -->
+                <th style="color: black; width: 15%;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let scheduleplan of schedulePlans">
+                <td>{{ scheduleplan.id }}</td>
+                <td>{{ scheduleplan.scheduleplan_name }}</td>
+                <td>{{ scheduleplan.scheduleplandetail_info }}</td>
+                <td>{{ scheduleplan.scheduleplan_description }}</td>
+                <td class="col-1">{{ scheduleplan.startDate }}</td>
+                <td class="col-1">{{ scheduleplan.endDate }}</td>
+                <td class="col-1">{{ scheduleplan.createDate }}</td>
+                <!-- <td>{{ scheduleplan.department?.id }}</td> -->
+                <!-- <td>{{ (scheduleplan.departmentId) }}</td> -->
+                <!-- <td>{{ getDepartmentById(scheduleplan.department?.departmentId) }}</td> -->
+                <td>
+                    <div class="actionBtns">
+                        <button class="btn btn-outline-danger" (click)="handleDeleteSchedulePlan(scheduleplan.id)"><b>Delete</b></button>
+                        <button class="btn btn-outline-success" (click)="showFormUpdateSchedulePlan(scheduleplan)" style="margin-left: 5%;"><b>Update</b></button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- form add -->
+<button *ngIf="showList" class="btn btn-primary" (click)="showFormAddSchedulePlan()">Add schedule_plan</button>
+<div *ngIf="showFormAdd" class="form-control" style="display: flex; flex-direction: column;">
+    <h5>{{ form_name }}</h5>
+    <div class="form">
+        <input type="text" id="scheduleplan_name" [(ngModel)]="name" placeholder="scheduleplan_name" required>
+        <input type="text" id="scheduleplandetail_info" [(ngModel)]="info" placeholder="scheduleplandetail_info" required>
+        <input type="text" id="scheduleplan_description" [(ngModel)]="desc" placeholder="scheduleplan_description" required>
+        <!-- <input type="text" id="startDate" placeholder="start_date"> -->
+        <!-- <input type="text" ngxDaterangepickerMd [(ngModel)]="selectedStartDate" class="form-control" /> -->
+        <!-- <input type="text" ngxDaterangepickerMd [lockStartDate]="false" [(ngModel)]="selectedStartDate" placeholder="Choose start_date & end_date" (ngModelChange)="ngModelChange()" /> -->
+        <input type="text" ngxDaterangepickerMd [lockStartDate]="false" [(ngModel)]="pickDate" placeholder="Choose start_date & end_date" (ngModelChange)="ngModelChange()" required />
+        <!-- <select [(ngModel)]="selectedDepartment" (change)="onDepartmentChange()" required>
+            <option disabled selected value="">Choose department</option>
+            <option *ngFor="let department of departments" [value]="department">{{ department.departmentId }} - {{ department.departmentName }}</option>
+        </select> -->
+        <select [(ngModel)]="selectedDepartment" (change)="onDepartmentChange()" required>
+            <option disabled>Choose department</option>
+            <option value="Manager Department">Manager Department</option>
+            <option value="Operator Department">Operator Department</option>
+        </select>
+        <div class="viewTwoBtns" style="margin-top: 2%;">
+            <button class="btn btn-outline-primary" (click)="handleAddSchedulePlan()"><b>Add</b></button>
+            <button class="btn btn-outline-secondary" (click)="handleCancel()"><b>Cancel</b></button>
+        </div>
+    </div>
+</div>
+
+<!-- form update -->
+<div *ngIf="showFormUpdate" class="form-control" style="display: flex; flex-direction: column;">
+    <h5>{{ form_name }}</h5>
+    <div class="form">
+        <input type="text" id="scheduleplan_name" [(ngModel)]="name" placeholder="scheduleplan_name" required>
+        <input type="text" id="scheduleplandetail_info" [(ngModel)]="info" placeholder="scheduleplandetail_info" required>
+        <input type="text" id="scheduleplan_description" [(ngModel)]="desc" placeholder="scheduleplan_description" required>
+        <input type="text" ngxDaterangepickerMd [lockStartDate]="false" [(ngModel)]="pickDate" placeholder="Choose start_date & end_date" (ngModelChange)="ngModelChange()" required />
+        <select [(ngModel)]="selectedDepartment" (change)="onDepartmentChange()" required>
+            <option disabled>Choose department</option>
+            <option value="Manager Department">Manager Department</option>
+            <option value="Operator Department">Operator Department</option>
+        </select>
+        <div class="viewTwoBtns">
+            <button class="btn btn-outline-primary" (click)="handleUpdateSchedulePlan()"><b>Update</b></button>
+            <button class="btn btn-outline-secondary" (click)="handleCancel()"><b>Cancel</b></button>
+        </div>
+    </div>
+</div>
