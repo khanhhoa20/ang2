@@ -34,6 +34,10 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarComponent } from './shared/components/operator/sidebar/sidebar.component';
 import { CreateBankAccountComponent } from './operators/create-bank-account/create-bank-account.component';
 import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
+import { DefaultLayoutComponent } from './layout/manager/default-layout/default-layout.component';
+import { ListOperatorComponent } from './manager/list-operator/list-operator.component';
+import { SchedulePlanComponent } from './manager/schedule-plan/schedule-plan.component';
+import { ManagerSidebarComponent } from './shared/components/manager/manager-sidebar/manager-sidebar.component';
 
 
 
@@ -52,7 +56,11 @@ import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-mone
     FooterComponent,
     SidebarComponent,
     CreateBankAccountComponent,
-    WidthrawMoneyComponent
+    WidthrawMoneyComponent,
+    DefaultLayoutComponent,
+    ListOperatorComponent,
+    SchedulePlanComponent,
+    ManagerSidebarComponent
   ],
   imports: [
     BrowserModule,
