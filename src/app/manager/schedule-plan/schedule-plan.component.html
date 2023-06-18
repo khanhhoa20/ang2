@@ -29,8 +29,8 @@
                 <!-- <td>{{ getDepartmentById(scheduleplan.department?.departmentId) }}</td> -->
                 <td>
                     <div class="actionBtns">
-                        <button class="btn btn-outline-danger" (click)="handleDeleteSchedulePlan(scheduleplan.id)"><b>Delete</b></button>
-                        <button class="btn btn-outline-success" (click)="showFormUpdateSchedulePlan(scheduleplan)" style="margin-left: 5%;"><b>Update</b></button>
+                        <button class="btn btn-outline-danger" (click)="handleDeleteSchedulePlan(scheduleplan.id)">❌<b>Delete</b></button>
+                        <button class="btn btn-outline-success" (click)="showFormUpdateSchedulePlan(scheduleplan)" style="margin-left: 5%;">✒<b>Update</b></button>
                     </div>
                 </td>
             </tr>
@@ -39,7 +39,7 @@
 </div>
 
 <!-- form add -->
-<button *ngIf="showList" class="btn btn-primary" (click)="showFormAddSchedulePlan()">Add schedule_plan</button>
+<button *ngIf="showList" class="btn btn-primary" (click)="showFormAddSchedulePlan()">Add schedule plan</button>
 <div *ngIf="showFormAdd" class="form-control" style="display: flex; flex-direction: column;">
     <h5>{{ form_name }}</h5>
     <div class="form">
@@ -79,9 +79,9 @@
             <option value="Manager Department">Manager Department</option>
             <option value="Operator Department">Operator Department</option>
         </select>
-        <div class="viewTwoBtns">
+        <div class="viewTwoBtns" style="margin-top: 2%;">
             <button class="btn btn-outline-primary" (click)="handleUpdateSchedulePlan()"><b>Update</b></button>
-            <button class="btn btn-outline-secondary" (click)="handleCancel()"><b>Cancel</b></button>
+            <button class="btn btn-outline-secondary" (click)="handleCancel()" style="margin-left: 5%;"><b>Cancel</b></button>
         </div>
     </div>
 </div>
