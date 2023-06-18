@@ -1,0 +1,23 @@
+.row {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.content {
+    padding-top: 10px;
+}
+
+.container-form {
+    width: 600px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.action {
+    padding: 28px 8px;
+}
+
+.action button {
+    flex: 1;
+}

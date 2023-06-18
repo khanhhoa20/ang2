@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
 
 import { MatInputModule } from '@angular/material/input';
@@ -43,6 +43,7 @@ import { ManagerSidebarComponent } from './shared/components/manager/manager-sid
 // date-picker
 //https://github.com/fetrarij/ngx-daterangepicker-material
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,9 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
     MatMenuModule,
     MatListModule,
     RouterModule,
-    NgxDaterangepickerMd.forRoot()
+    NgxDaterangepickerMd.forRoot(),
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [OperatorService, ManagerService],
   bootstrap: [AppComponent]
