@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
+import { MatTableModule } from '@angular/material/table';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,6 +17,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { OperatorService } from './service/operator.service';
@@ -39,11 +41,14 @@ import { DefaultLayoutComponent } from './layout/manager/default-layout/default-
 import { ListOperatorComponent } from './manager/list-operator/list-operator.component';
 import { SchedulePlanComponent } from './manager/schedule-plan/schedule-plan.component';
 import { ManagerSidebarComponent } from './shared/components/manager/manager-sidebar/manager-sidebar.component';
-
+import { BankAccountComponent } from './manager/bank-account/bank-account.component'
 // date-picker
 //https://github.com/fetrarij/ngx-daterangepicker-material
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSelectModule } from '@angular/material/select';
+import { FindAllBankAccountComponent } from './manager/find-all-bank-account/find-all-bank-account.component';
+import { DialogOverviewExampleDialogComponent } from './manager/dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +69,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DefaultLayoutComponent,
     ListOperatorComponent,
     SchedulePlanComponent,
-    ManagerSidebarComponent
+    ManagerSidebarComponent,
+    BankAccountComponent,
+    FindAllBankAccountComponent,
+    DialogOverviewExampleDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,7 +94,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     NgxDaterangepickerMd.forRoot(),
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [OperatorService, ManagerService],
   bootstrap: [AppComponent]

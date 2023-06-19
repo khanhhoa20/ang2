@@ -1,13 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { Operator } from '../model/operator';
+import { BankAccount } from '../model/bank-account';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ManagerService {
-  url = "http://localhost:9090/tpbank"
+  url = "http://localhost:9090/tpbank/"
   viewAllOperatorUrl = "manager/listAllOperator"
   loginUrl = "manager/login"
   listOperatorUrl = "manager/listAllOperator"
@@ -89,5 +90,68 @@ export class ManagerService {
 
   deleteOperator(username: string): Observable<string> {
     return this.http.delete(`${this.url}/${this.deleteUrl}/${username}`, { responseType: 'text' })
+  }
+
+
+  // bankingAccount
+  createBankAccount(bankAccount: BankAccount): Observable<string> {
+    return this.http.post(`${this.url}manager/createBankAccount`, bankAccount, { responseType: 'arraybuffer' })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          // Handle the error here
+          console.error('An error occurred:', error.error);
+          // You can throw a custom error message or return a default value
+          return throwError('Error creating bank account.');
+        }),
+        map((response: ArrayBuffer) => {
+          const decoder = new TextDecoder('utf-8');
+          const decodedResponse = decoder.decode(response);
+          return decodedResponse;
+        })
+      );
+  }
+
+  getAllBankAccount(): Observable<BankAccount[]> {
+    return this.http.get<BankAccount[]>(`${this.url}manager/getAllBankAccount`);
+  }
+
+  deleteBankAccount(id: number): Observable<any> {
+    return this.http.delete(`${this.url}manager/deleteBankAccount/${id}`, { responseType: 'arraybuffer' }).pipe(
+      catchError((error: any) => {
+        // Handle the error here
+        console.error('An error occurred:', error);
+        // You can throw a custom error message or return a default value
+        return throwError('Error deleting bank account.');
+      }),
+      map((response: ArrayBuffer) => {
+        const decoder = new TextDecoder('utf-8');
+        const decodedResponse = decoder.decode(response);
+        return decodedResponse;
+      })
+    );
+  }
+
+  findBankAccountById(id: number): Observable<any> {
+    const url = `${this.url}manager/findAccountById/${id}`;
+    return this.http.get<BankAccount>(url)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          // Handle the error here
+          console.error('An error occurred:', error.error);
+          // You can throw a custom error message or return a default value
+          return throwError('Unable to fetch bank account.');
+        })
+      );
+  }
+  
+  updateBankAccount(bankAccount: BankAccount): Observable<string> {
+    console.log("Before updateBankAccount API call");
+    console.log(bankAccount)
+    let res = this.http.put(`${this.url}manager/updateBankAccount`, bankAccount, {
+      responseType: 'text'
+    })
+    res.subscribe(data => {});
+    return res
+
   }
 }
