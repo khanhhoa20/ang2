@@ -15,6 +15,8 @@ import { DepositMoneyComponent } from './operators/deposit-money/deposit-money.c
 import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
 import { ListOperatorComponent } from './manager/list-operator/list-operator.component';
 import { SchedulePlanComponent } from './manager/schedule-plan/schedule-plan.component';
+import { BankAccountComponent } from './manager/bank-account/bank-account.component';
+import { FindAllBankAccountComponent } from './manager/find-all-bank-account/find-all-bank-account.component';
 
 
 const routes: Routes = [
@@ -61,7 +63,17 @@ const routes: Routes = [
       {
         path: 'view-schedule-plan',
         component: SchedulePlanComponent
+      },
+      {
+        path: 'create-banking-account',
+        component: BankAccountComponent
+      },
+      {
+        path: 'find-all-bank-account',
+        component: FindAllBankAccountComponent
       }
+      
+
     ]
   }
 ]
