@@ -14,8 +14,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
-
+import { ModalDismissReasons,NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup, NgForm, FormBuilder } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { OperatorService } from './service/operator.service';
@@ -34,6 +37,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarComponent } from './shared/components/operator/sidebar/sidebar.component';
 import { CreateBankAccountComponent } from './operators/create-bank-account/create-bank-account.component';
 import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -71,7 +75,9 @@ import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-mone
     FlexLayoutModule,
     MatMenuModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    NgbModule,
+    ReactiveFormsModule,
   ],
   providers: [OperatorService],
   bootstrap: [AppComponent]
