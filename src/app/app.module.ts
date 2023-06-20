@@ -58,6 +58,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { FindAllBankAccountComponent } from './manager/find-all-bank-account/find-all-bank-account.component';
 import { DialogOverviewExampleDialogComponent } from './manager/dialog-overview-example-dialog/dialog-overview-example-dialog.component';
+import { LayoutDefaultComponent } from './layout/customer/layout-default/layout-default.component';
 
 
 
@@ -90,6 +91,7 @@ import { DialogOverviewExampleDialogComponent } from './manager/dialog-overview-
     PopUpComponent,
     DeleteConfirmComponent,
     ViewManagerComponent,
+    LayoutDefaultComponent,
   ],
   imports: [
     BrowserModule,
