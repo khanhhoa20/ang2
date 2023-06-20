@@ -14,7 +14,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
-
+import { ModalDismissReasons,NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup, NgForm, FormBuilder } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout'
 
 import { AppComponent } from './app.component';
@@ -40,8 +42,12 @@ import { UpdateAccountInformationComponent } from './customer/update-account-inf
 import { FindAccountByIdStkComponent } from './customer/find-account-by-id-stk/find-account-by-id-stk.component';
 import { CustomerSidebarComponent } from './shared/components/customer/customer-sidebar/customer-sidebar.component';
 import { CustomerDefaultComponent } from './layout/customer/customer-default/customer-default.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TransferMoneyComponent } from './customer/transfer-money/transfer-money.component';
+import { CreateBankAccountComponent } from './operators/create-bank-account/create-bank-account.component';
+import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @NgModule({
   declarations: [
@@ -85,8 +91,8 @@ import { TransferMoneyComponent } from './customer/transfer-money/transfer-money
     MatMenuModule,
     MatListModule,
     RouterModule,
-    NgbModule
-
+    NgbModule,
+    ReactiveFormsModule,
   ],
   providers: [OperatorService],
   bootstrap: [AppComponent]
