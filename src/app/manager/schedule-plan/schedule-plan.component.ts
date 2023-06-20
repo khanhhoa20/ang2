@@ -73,7 +73,7 @@ export class SchedulePlanComponent implements OnInit {
     this.showList = false;
     this.showFormAdd = true;
     this.showFormUpdate = false;
-    this.form_name = 'Form ADD schedule_plan';
+    this.form_name = 'Form ADD schedule plan';
   }
 
   onDepartmentChange(): void {
@@ -141,7 +141,7 @@ export class SchedulePlanComponent implements OnInit {
     this.showList = false;
     this.showFormAdd = false;
     this.showFormUpdate = true;
-    this.form_name = 'Form UPDATE schedule_plan';
+    this.form_name = 'Form UPDATE schedule plan';
   }
 
   handleUpdateSchedulePlan() {
