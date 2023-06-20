@@ -30,13 +30,11 @@ export class LoginComponent implements OnInit {
         this.router?.navigateByUrl("operator/view-list-customer")
       }
     })
-    this.managerService.login(this.username, this.password).subscribe(data =>{
+    this.managerService.login(this.username, this.password).subscribe(data => {
       this.result = data
-      if(data.includes("manager")){
+      if (data.includes("manager")) {
         this.router?.navigateByUrl("manager/view-list-operator")
       }
     })
   }
-
-
 }
