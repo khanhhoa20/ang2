@@ -77,6 +77,7 @@ export class ListOperatorComponent implements OnInit {
     this.msg = this.addComp.addOperator(operatorForm);
     this.getListOperator();
     this.modalService.dismissAll();
+    this.ngOnInit();
   }
 
   openEdit(editForm: any, operator: Operator) {
