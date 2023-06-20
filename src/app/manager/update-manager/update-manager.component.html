@@ -1,0 +1,82 @@
+<div style="text-align: center">
+  <h2>Update Manager</h2>
+
+  <form (ngSubmit)="onSubmit()" align="center">
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input matInput
+          placeholder="Enter phone number"
+          [(ngModel)]="manager.managerPhone"
+          name="phone" required/>
+      </mat-form-field>
+
+      <mat-form-field style="margin-left: 20px;">
+        <mat-label>Address</mat-label>
+        <input matInput
+          placeholder="Enter address"
+          [(ngModel)]="manager.managerAddress"
+          name="address"/>
+      </mat-form-field>
+    </div>
+    
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput
+          placeholder="Enter email"
+          [(ngModel)]="manager.managerEmail"
+          name="email" required/>
+      </mat-form-field>
+
+      <mat-form-field style="margin-left: 20px;">
+        <mat-label>Name</mat-label>
+        <input matInput
+          placeholder="Enter name"
+          [(ngModel)]="manager.managerName"
+          name="name"/>
+      </mat-form-field>
+    </div>
+    
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <!-- <input matInput
+          placeholder="Enter Username"
+          [(ngModel)]="manager.user.userName"
+          name="userName" required/> -->
+          <mat-select placeholder="Enter Username" [(ngModel)]="manager.user.userName" name="userName" required>
+            <mat-option [value]="manager.user.userName">{{manager.user.userName}}</mat-option>
+          <mat-option *ngFor = "let u of userList" [value]="u.userName">{{u.userName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field style="margin-left: 20px;">
+        <mat-label>Department</mat-label>
+        <!-- <input matInput
+          placeholder="Enter Department ID"
+          [(ngModel)]="manager.department.departmentId"
+          name="department" required/> -->
+        <mat-select placeholder="Enter Department" [(ngModel)]="manager.department.departmentId" name="department" required>
+          <mat-option [value]="manager.department.departmentId">{{manager.department.departmentName}}</mat-option>
+          <mat-option *ngFor = "let de of departmentList" [value]="de.departmentId">{{de.departmentName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field style="width: 820px;">
+        <mat-label>Status</mat-label>
+        <mat-select id="status" placeholder="Choose status" [(ngModel)]="manager.managerStatus" name="status" required>
+          <mat-option value="Active">Active</mat-option>
+          <mat-option value="Inactive">Inactive</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <button type="submit" mat-raised-button color="primary" style="font-size: 16px">
+      Update
+    </button>
+  </form>
+
+</div>

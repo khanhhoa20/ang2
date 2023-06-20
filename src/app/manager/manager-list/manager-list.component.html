@@ -1,0 +1,59 @@
+
+
+<div style="text-align: center">
+  <h2>List Manager</h2>
+  <div class="table-wrapper">
+      <button mat-raised-button color="primary" style="float: right"  routerLink="/manager/add-manager"><mat-icon fontIcon="add_circle_outline"/>Add Manager</button>
+      <table mat-table [dataSource]="managers" class="mat-elevation-z8">
+      
+        <ng-container matColumnDef="Phone">
+          <th mat-header-cell *matHeaderCellDef>Phone</th>
+          <td mat-cell *matCellDef="let element">{{element.managerPhone}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Address">
+          <th mat-header-cell *matHeaderCellDef>Address</th>
+          <td mat-cell *matCellDef="let element">{{element.managerAddress}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let element">{{element.managerEmail}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.managerName}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Username">
+          <th mat-header-cell *matHeaderCellDef>Username</th>
+          <td mat-cell *matCellDef="let element">{{element.user.userName}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Department">
+          <th mat-header-cell *matHeaderCellDef>Department</th>
+          <td mat-cell *matCellDef="let element">{{element.department.departmentName}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">{{element.managerStatus}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td *matCellDef="let element" class="button-container">
+              <button (click)="updateManager($event, element.managerID)" mat-stroked-button color="primary"><mat-icon fontIcon="edit" style="margin-left: 10px"/></button>
+              <button (click)="deleteManager($event, element.managerID)" mat-stroked-button color="warn" style="margin-left: 10px;"><mat-icon fontIcon="delete_outline" style="margin-left: 10px"/></button>   
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row (click)="viewManager(row.managerID)" *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+  </div>
+</div>
+

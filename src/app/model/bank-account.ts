@@ -1,13 +1,13 @@
 import { Customer } from "./customer"
 
 export class BankAccount {
-    bankAccountId: number
+    bankAccountId: number|null
     balance: number
     bankName: string
     lockStatus: string
     customer: Customer
     listTransactions: []
-    constructor(bankAccountId: number,
+    constructor(bankAccountId: number|null,
         balance: number,
         bankName: string,
         lockStatus: string,
