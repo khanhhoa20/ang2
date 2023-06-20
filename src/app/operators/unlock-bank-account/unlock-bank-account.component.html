@@ -10,7 +10,7 @@
     " *ngIf="cusPhone.errors?.['required']">Please enter customer phone</span>
 </form> -->
 
-    <form #myForm="ngForm" (ngSubmit)="submit(myForm)" fxFlex="30">
+    <form #myForm="ngForm" (ngSubmit)="submit(myForm)" fxFlex="30" style="text-align: center;">
         <p class="title" fxFlexLayout="center center">Unlock Bank Account</p>
         <div>
             <mat-form-field class="full-width">
@@ -23,7 +23,7 @@
             </mat-form-field>
         </div>
         <!-- <br /> -->
-        <p>{{messageResult}}</p>
+        <p style="color:rgb(124, 124, 234)">{{messageResult}}</p>
         <button mat-raised-button class="btSubmit" mat-raised-button color="primary" type="submit"
             [disabled]="myForm.invalid">Submit</button>
     </form>
