@@ -1,4 +1,4 @@
-<p class="title">Lock Bank Account</p>
+<!-- <p class="title">Lock Bank Account</p>
 <form #myForm="ngForm" (ngSubmit)="submit(myForm)">
     <label><b>Enter customer phone to lock</b></label><br>
     <input type="text" class="input" name="cusPhone" #cusPhone="ngModel" ngModel required><br>
@@ -7,4 +7,22 @@
     margin-left: 10px;
     " *ngIf="cusPhone.errors?.['required']">Please enter customer phone</span>
 </form>
-<p>{{messageResult}}</p>
+<p>{{messageResult}}</p> -->
+
+
+<div fxLayoutAlign="center center">
+    <form #myForm="ngForm" (ngSubmit)="submit(myForm)" fxFlex="30" style="text-align: center;">
+        <p class="title" fxFlexLayout="center center">Lock bank account</p>
+        <div>
+            <mat-form-field class="full-width">
+                <mat-label class="label">Enter customer phone to lock</mat-label>
+                <input fxFlex="30" matInput type="text" name="cusPhone" ngModel required #cusPhone="ngModel" />
+                <mat-error style="color: red;" *ngIf="cusPhone.errors?.['required']">Please enter customer
+                    phone</mat-error>
+            </mat-form-field>
+        </div>
+        <p style="color:rgb(81, 81, 232)">{{messageResult}}</p>
+        <button mat-raised-button class="btSubmit" mat-raised-button color="primary" type="submit"
+            [disabled]="myForm.invalid">Submit</button>
+    </form>
+</div>
