@@ -15,7 +15,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
-
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup, NgForm, FormBuilder } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -49,6 +51,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatSelectModule } from '@angular/material/select';
 import { FindAllBankAccountComponent } from './manager/find-all-bank-account/find-all-bank-account.component';
 import { DialogOverviewExampleDialogComponent } from './manager/dialog-overview-example-dialog/dialog-overview-example-dialog.component';
+
+
 
 @NgModule({
   declarations: [
@@ -106,7 +110,9 @@ import { DialogOverviewExampleDialogComponent } from './manager/dialog-overview-
     MatButtonModule,
     MatSelectModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    NgbModule,
+    ReactiveFormsModule,
   ],
   providers: [OperatorService, ManagerService],
   bootstrap: [AppComponent]
