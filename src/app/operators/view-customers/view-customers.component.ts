@@ -27,6 +27,7 @@ export class ViewCustomersComponent implements OnInit {
     customerAddress: new FormControl(),
     password: new FormControl()
   });
+  
 
   constructor(private operatorService: OperatorService,private http: HttpClient, private modalService:NgbModal,private fb: FormBuilder) { 
     // this.apiDeleteCustomer = this.operatorService.deletedCustomer1()
@@ -72,6 +73,13 @@ export class ViewCustomersComponent implements OnInit {
     customerAddress: cus.customerAddress,
     password: cus.user.userPass
     })
+  }
+  openAdd(form:any,cus:Customer){
+    this.modalService.open(form, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
   
   private getDismissReason(reason: any): string {
