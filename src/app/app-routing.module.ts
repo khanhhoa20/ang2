@@ -12,6 +12,12 @@ import { LockBankAccountComponent } from './operators/lock-bank-account/lock-ban
 import { UnlockBankAccountComponent } from './operators/unlock-bank-account/unlock-bank-account.component';
 import { DepositMoneyComponent } from './operators/deposit-money/deposit-money.component';
 import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
+import { CustomerDefaultComponent } from './layout/customer/customer-default/customer-default.component';
+import { GetAllAccountComponent } from './customer/get-all-account/get-all-account.component';
+import { FindAccountByIdStkComponent } from './customer/find-account-by-id-stk/find-account-by-id-stk.component';
+import { ChangeAccountPasswordComponent } from './customer/change-account-password/change-account-password.component';
+// import { UpdateAccountInformationComponent } from './customer/update-account-information/update-account-information.component';
+import { TransferMoneyComponent } from './customer/transfer-money/transfer-money.component';
 
 
 const routes: Routes = [
@@ -45,16 +51,31 @@ const routes: Routes = [
         path: 'widthraw-money',
         component: WidthrawMoneyComponent
       },
-      // {
-      //   path: '',
-      //   component: DashboardComponent
-      // },
-      // {
-      //   path: 'view-list-operator',
-      //   component: OperatorComponent
-      // }
     ]
   },
+  {
+    path: 'customer',
+    component: CustomerDefaultComponent,
+    children: [
+      {
+        path: 'cusdetail',
+        component: GetAllAccountComponent
+      },
+      {
+        path: 'accdetail',
+        component: FindAccountByIdStkComponent
+      },
+      {
+        path: 'changepass',
+        component: ChangeAccountPasswordComponent
+      },
+      {
+        path: 'transfermoney',
+        component: TransferMoneyComponent
+      },
+      
+    ]
+  }
   // { path: 'view-list-operator', component: OperatorComponent },
 ]
 @NgModule({
