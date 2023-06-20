@@ -5,6 +5,7 @@ export class Operator {
     operatorID: number
     operPhone: string
     operAddress: string
+    email: string
     operName: string
     operatorStatus: string
     user: User
@@ -12,12 +13,14 @@ export class Operator {
     constructor(operatorID: number,
         operPhone: string,
         operAddress: string,
+        email: string,
         operName: string,
         operatorStatus: string,
         user: User,
         department: Department) {
         this.department = department
         this.operAddress = operAddress
+        this.email = email
         this.operName = operName
         this.operPhone = operPhone
         this.operatorID = operatorID

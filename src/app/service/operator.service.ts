@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Operator } from '../model/operator';
 import { BankAccount } from '../model/bank-account';
+import { Customer } from '../model/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class OperatorService {
   viewCustomersUrl = "operator/view-customer-list"
   lockBankAccountUrl = "operator/lock-bank-account"
   depositMoneyUrl = "operator/deposit"
+  deleteCustomer = "operator/delete-customer/"
+  updateCustomer = "operator/update-customer"
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -50,6 +55,9 @@ export class OperatorService {
       responseType: 'text'
     })
   }
+  deletedCustomer1():string{
+    return this.deleteCustomer;
+  }
 
   depositMoney(amount: number, cusPhone: string): Observable<string> {
     return this.http.put(`${this.url}/${this.depositMoneyUrl}`, {
@@ -62,6 +70,19 @@ export class OperatorService {
     }, {
       responseType: 'text'
     })
+  }
+  updateCustomer1(customerName:string,customerAddress:string,cusPhone:string,userPass:string): Observable<string>{
+    return this.http.put(`${this.url}/${this.updateCustomer}`,{
+      "customerName":customerName,
+      "customerAddress":customerAddress,
+      "customerPhone":cusPhone,
+      "user":{
+        "userPass":userPass
+      }
+      
+    },{
+      responseType: 'text'
+    });
   }
 
 }

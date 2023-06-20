@@ -1,0 +1,74 @@
+<div style="margin: 50px; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: space-between;">
+        <mat-form-field class="example-full-width">
+            <mat-label>Balance</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="{{this.balance}}" [(ngModel)]="this.balance">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Bank Name</mat-label>
+            <mat-select [(ngModel)]="bankName">
+                <mat-option *ngFor="let bank of banks" [value]="bank.value">
+                    {{bank.bankName}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Lock Status</mat-label>
+            <mat-select [(ngModel)]="lockStatus">
+                <mat-option *ngFor="let item of status" [value]="item.value">
+                    {{item.lockStatus}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Customer Name</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="{{this.customerName}}" [(ngModel)]="this.customerName">
+        </mat-form-field>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+        <mat-form-field class="example-full-width">
+            <mat-label>Customer Address</mat-label>
+            <input matInput placeholder="Ex. Pizza" value="{{this.customerAddress}}" [(ngModel)]="this.customerAddress">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Customer Phone</mat-label>
+            <input matInput placeholder="0xxxxxx" value="{{this.customerPhone}}" [(ngModel)]="this.customerPhone">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Gmail</mat-label>
+            <input matInput placeholder="xxx@gmail.com" value="{{this.customerEmail}}" [(ngModel)]="this.customerEmail"
+                type="email">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Customer NationalId</mat-label>
+            <input matInput placeholder="0" value="{{this.customerNationalId}}" [(ngModel)]="this.customerNationalId">
+        </mat-form-field>
+    </div>
+<div style="display: flex; justify-content: space-between;">
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Customer Dob</mat-label>
+        <input matInput placeholder="0" value="{{this.customerDob}}" [(ngModel)]="this.customerDob" type="date">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="0" value="{{this.userName}}" [(ngModel)]="this.userName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>User Pass</mat-label>
+        <input matInput placeholder="0" value="{{this.userPass}}" [(ngModel)]="this.userPass" type="password">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Role</mat-label>
+        <input matInput placeholder="Customer" value="{{this.role}}" [(ngModel)]="this.role">
+    </mat-form-field>
+</div>
+</div>
+
+<div style="align-items: center;justify-content: center;display: flex; margin-top: 50px;">
+    <button mat-raised-button color="primary" (click)="saveBankAccount()">Save</button>
+</div>
+

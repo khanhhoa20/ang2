@@ -10,4 +10,15 @@ td, th {
     text-align: left;
     padding: 8px;
   }
+.Action{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: none;
   
+}
+
+::ng-deep ngb-modal-backdrop {
+  z-index: 1050 !important;
+}
+/* mở code tui ra bro */

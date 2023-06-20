@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
+import { MatTableModule } from '@angular/material/table';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,11 +15,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
-
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup, NgForm, FormBuilder } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { OperatorService } from './service/operator.service';
+import { ManagerService } from './service/manager.service';
 import { OperatorComponent } from './operators/operator/operator.component';
 import { LoginComponent } from './login/login.component';
 import { UnlockBankAccountComponent } from './operators/unlock-bank-account/unlock-bank-account.component';
@@ -34,12 +39,25 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarComponent } from './shared/components/operator/sidebar/sidebar.component';
 import { CreateBankAccountComponent } from './operators/create-bank-account/create-bank-account.component';
 import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
-// import { CreateBankAccountComponent } from './customer/create-bank-account/create-bank-account.component';
-import { RegisterCreateBankAccountComponent } from './customer/register-create-bank-account/register-create-bank-account.component';
-import { GetAllAccountComponent } from './customer/get-all-account/get-all-account.component';
-import { ChangeAccountPasswordComponent } from './customer/change-account-password/change-account-password.component';
-import { UpdateAccountInformationComponent } from './customer/update-account-information/update-account-information.component';
-import { FindAccountByIdStkComponent } from './customer/find-account-by-id-stk/find-account-by-id-stk.component';
+import { DefaultLayoutComponent } from './layout/manager/default-layout/default-layout.component';
+import { ListOperatorComponent } from './manager/list-operator/list-operator.component';
+import { SchedulePlanComponent } from './manager/schedule-plan/schedule-plan.component';
+import { ManagerSidebarComponent } from './shared/components/manager/manager-sidebar/manager-sidebar.component';
+import { BankAccountComponent } from './manager/bank-account/bank-account.component'
+import { PopUpComponent } from './manager/pop-up/pop-up.component';
+import { DeleteConfirmComponent } from './manager/delete-confirm/delete-confirm.component';
+import { ViewManagerComponent } from './manager/view-manager/view-manager.component';
+import { ManagerListComponent } from './manager/manager-list/manager-list.component';
+import { AddManagerComponent } from './manager/add-manager/add-manager.component';
+import { UpdateManagerComponent } from './manager/update-manager/update-manager.component';
+
+// date-picker
+//https://github.com/fetrarij/ngx-daterangepicker-material
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSelectModule } from '@angular/material/select';
+import { FindAllBankAccountComponent } from './manager/find-all-bank-account/find-all-bank-account.component';
+import { DialogOverviewExampleDialogComponent } from './manager/dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 
 
@@ -57,11 +75,21 @@ import { FindAccountByIdStkComponent } from './customer/find-account-by-id-stk/f
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    RegisterCreateBankAccountComponent,
-    GetAllAccountComponent,
-    ChangeAccountPasswordComponent,
-    UpdateAccountInformationComponent,
-    FindAccountByIdStkComponent
+    CreateBankAccountComponent,
+    WidthrawMoneyComponent,
+    DefaultLayoutComponent,
+    ListOperatorComponent,
+    SchedulePlanComponent,
+    ManagerSidebarComponent,
+    BankAccountComponent,
+    FindAllBankAccountComponent,
+    DialogOverviewExampleDialogComponent,
+    ManagerListComponent,
+    AddManagerComponent,
+    UpdateManagerComponent,
+    PopUpComponent,
+    DeleteConfirmComponent,
+    ViewManagerComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,9 +108,26 @@ import { FindAccountByIdStkComponent } from './customer/find-account-by-id-stk/f
     FlexLayoutModule,
     MatMenuModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    NgxDaterangepickerMd.forRoot(),
+    NgbModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatTableModule,
+    MatDialogModule,
+    NgbModule,
+    ReactiveFormsModule,
   ],
-  providers: [OperatorService],
+  providers: [OperatorService, ManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
