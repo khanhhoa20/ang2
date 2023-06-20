@@ -43,9 +43,9 @@ import { GetAllAccountComponent } from './customer/get-all-account/get-all-accou
 import { ChangeAccountPasswordComponent } from './customer/change-account-password/change-account-password.component';
 import { UpdateAccountInformationComponent } from './customer/update-account-information/update-account-information.component';
 import { FindAccountByIdStkComponent } from './customer/find-account-by-id-stk/find-account-by-id-stk.component';
-import { CustomerSidebarComponent } from './shared/components/customer/customer-sidebar/customer-sidebar.component';
-import { CustomerDefaultComponent } from './layout/customer/customer-default/customer-default.component';
-import { TransferMoneyComponent } from './customer/transfer-money/transfer-money.component';
+// import { CustomerSidebarComponent } from './shared/components/customer/customer-sidebar/customer-sidebar.component';
+// import { CustomerDefaultComponent } from './layout/customer/customer-default/customer-default.component';
+// import { TransferMoneyComponent } from './customer/transfer-money/transfer-money.component';
 import { CreateBankAccountComponent } from './operators/create-bank-account/create-bank-account.component';
 import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
 import { DefaultLayoutComponent } from './layout/manager/default-layout/default-layout.component';
@@ -68,6 +68,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { FindAllBankAccountComponent } from './manager/find-all-bank-account/find-all-bank-account.component';
 import { DialogOverviewExampleDialogComponent } from './manager/dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 import { LayoutDefaultComponent } from './layout/customer/layout-default/layout-default.component';
+import { TransferMoneyComponent } from './customer/transfer-money/transfer-money.component';
+import { CustomerDefaultComponent } from './layout/customer/customer-default/customer-default.component';
+import { CustomerSidebarComponent } from './shared/components/customer/customer-sidebar/customer-sidebar.component';
 
 
 
@@ -101,6 +104,9 @@ import { LayoutDefaultComponent } from './layout/customer/layout-default/layout-
     DeleteConfirmComponent,
     ViewManagerComponent,
     LayoutDefaultComponent,
+    TransferMoneyComponent,
+    CustomerDefaultComponent,
+    CustomerSidebarComponent,
   ],
   imports: [
     BrowserModule,
