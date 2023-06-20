@@ -13,13 +13,12 @@ import { LockBankAccountComponent } from './operators/lock-bank-account/lock-ban
 import { UnlockBankAccountComponent } from './operators/unlock-bank-account/unlock-bank-account.component';
 import { DepositMoneyComponent } from './operators/deposit-money/deposit-money.component';
 import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
-import { ListOperatorComponent } from './manager/list-operator/list-operator.component';
-import { SchedulePlanComponent } from './manager/schedule-plan/schedule-plan.component';
-import { BankAccountComponent } from './manager/bank-account/bank-account.component';
-import { FindAllBankAccountComponent } from './manager/find-all-bank-account/find-all-bank-account.component';
-import { AddManagerComponent } from './manager/add-manager/add-manager.component';
-import { UpdateManagerComponent } from './manager/update-manager/update-manager.component';
-import { ManagerListComponent } from './manager/manager-list/manager-list.component';
+import { CustomerDefaultComponent } from './layout/customer/customer-default/customer-default.component';
+import { GetAllAccountComponent } from './customer/get-all-account/get-all-account.component';
+import { FindAccountByIdStkComponent } from './customer/find-account-by-id-stk/find-account-by-id-stk.component';
+import { ChangeAccountPasswordComponent } from './customer/change-account-password/change-account-password.component';
+// import { UpdateAccountInformationComponent } from './customer/update-account-information/update-account-information.component';
+import { TransferMoneyComponent } from './customer/transfer-money/transfer-money.component';
 
 
 const routes: Routes = [
@@ -52,44 +51,33 @@ const routes: Routes = [
       {
         path: 'widthraw-money',
         component: WidthrawMoneyComponent
-      }
+      },
     ]
   },
   {
-    path: 'manager',
-    component: DefaultLayoutComponent,
+    path: 'customer',
+    component: CustomerDefaultComponent,
     children: [
       {
-        path: 'view-list-operator',
-        component: ListOperatorComponent
+        path: 'cusdetail',
+        component: GetAllAccountComponent
       },
       {
-        path: 'view-schedule-plan',
-        component: SchedulePlanComponent
+        path: 'accdetail',
+        component: FindAccountByIdStkComponent
       },
       {
-        path: 'create-banking-account',
-        component: BankAccountComponent
+        path: 'changepass',
+        component: ChangeAccountPasswordComponent
       },
       {
-        path: 'find-all-bank-account',
-        component: FindAllBankAccountComponent
-      }
-      , {
-        path: 'list',
-        component: ManagerListComponent
-      },
-      {
-        path: 'add-manager',
-        component: AddManagerComponent
-      },
-      {
-        path: 'update-manager/:id',
-        component: UpdateManagerComponent
+        path: 'transfermoney',
+        component: TransferMoneyComponent
       },
 
     ]
   }
+  // { path: 'view-list-operator', component: OperatorComponent },
 ]
 @NgModule({
   declarations: [],

@@ -1,1 +1,47 @@
-<p>find-account-by-id-stk works!</p>
+<style>
+  #changepassID{
+      background-color: #FFF;
+      box-shadow: 2px 2px 0.5 #000;
+      /* margin-right: 20px; */
+      border-radius: 5px;
+      border: 1px solid #949494;
+  }
+  .text-balance {
+    font-size: 50px;
+    align-items: center;
+    display: flex;
+    vertical-align: middle;
+
+  }
+  .text-balance input{
+    border: none;
+
+  }
+
+</style>
+
+<form class="form-inline" #accdetailForm="ngForm" (ngSubmit)="accdetail(accdetailForm)">
+    <!-- #cusdetailForm="ngForm" -->
+    <!-- (ngSubmit)="cusdetail(cusdetailForm, editcusdetailForm)" -->
+    <div class="form-group mb-2">
+      <input ngModel type="text" class="form-control-plaintext p-2 mr-3 bg-blue" id="accdetailID" value="" placeholder="CustomerID" name="accdetailID">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2" >Confirm</button>
+</form>
+<hr>
+<form [formGroup]="accdetailFormgroup">
+  <div class="row">
+    <div class="col">
+      <input readonly formControlName="customerName" type="text" class="form-control" placeholder="Your name">
+    </div>
+    <div class="col">
+      <input readonly formControlName="bankName" type="text" class="form-control" placeholder="Bank name">
+    </div>
+  </div>
+  <div class="row mt-2 text-center ">
+      <div class="text-balance font-weight-bold m-auto">
+        <input readonly formControlName="balance" class="text-center">
+        <p class="ml-2">$</p>
+      </div>
+  </div>
+</form>
