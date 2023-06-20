@@ -16,7 +16,7 @@ export class CreateBankAccountComponent implements OnInit {
     this.submit
   }
   submit(myForm:NgForm){
-    this.operatorService.createBankAccount1(myForm.value.balance,myForm.value.bankname,myForm.value.name,myForm.value.address,myForm.value.phone,myForm.value.email,myForm.value.nationalId,myForm.value.username,myForm.value.password).subscribe(data =>{
+    this.operatorService.createBankAccount1(myForm.value.balance,myForm.value.name,myForm.value.address,myForm.value.phone,myForm.value.email,myForm.value.nationalId,myForm.value.username,myForm.value.password,myForm.value.birthday).subscribe(data =>{
       this.message = data
     })
 

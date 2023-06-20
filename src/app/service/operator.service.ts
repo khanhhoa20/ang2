@@ -72,11 +72,11 @@ export class OperatorService {
       responseType: 'text'
     })
   }
-  createBankAccount1(balance:string,bankname:string,customerName:string,customerAddress:string,customerPhone:string,customerEmail:string,customerNationalId:number,userName:string,userPass:string):Observable<string>{
+  createBankAccount1(balance:string,customerName:string,customerAddress:string,customerPhone:string,customerEmail:string,customerNationalId:number,userName:string,userPass:string,dob:string):Observable<string>{
     return this.http.post(`${this.url}/${this.createBankAccount}`,{
       "balance": balance,
-      "bankName":bankname,
       "customer":{
+      "customerDob":dob,
       "customerName":customerName,
       "customerAddress":customerAddress,
       "customerPhone":customerPhone,
