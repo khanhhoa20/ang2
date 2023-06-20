@@ -1,0 +1,98 @@
+
+
+<!-- <table *ngIf="this.bankAccount!=undefined" class = "table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th> ID</th>
+            <th> Balance</th>
+            <th> Lock Status </th>
+            <th> Bank Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let item of bankAccount" >
+            <td> {{ item.bankAccountId }} </td>
+            <td> {{ item.balance }} </td>
+            <td> {{ item.lockStatus }} </td>
+            <td> {{ item.bankName }} </td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+<div style="border-radius: 20px; margin: 50px; padding-top: 100px;">
+    <table *ngIf="this.bankAccount!=undefined" mat-table [dataSource]="bankAccount" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.bankAccountId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Balance </th>
+            <td mat-cell *matCellDef="let element"> {{element.balance}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Lock Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.lockStatus}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="bankName">
+            <th mat-header-cell *matHeaderCellDef> Bank Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.bankName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="customerAddress">
+            <th mat-header-cell *matHeaderCellDef> Customer Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.customer.customerAddress}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="customerDob">
+            <th mat-header-cell *matHeaderCellDef> Customer Dob </th>
+            <td mat-cell *matCellDef="let element"> {{element.customer.customerDob}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="customerName">
+            <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.customer.customerName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="customerEmail">
+            <th mat-header-cell *matHeaderCellDef> Customer Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.customer.customerEmail}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="customerPhone">
+            <th mat-header-cell *matHeaderCellDef> Customer Phone </th>
+            <td mat-cell *matCellDef="let element"> {{element.customer.customerPhone}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="deleteFunc(element.bankAccountId)" mat-fab color="primary"
+                    aria-label="Example icon button with a delete icon">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> Edit </th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="openDialog(element)" mat-fab color="primary"
+                    aria-label="Example icon button with a delete icon">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<div style="align-items: center;justify-content: center;display: flex; margin-top: 50px;">
+    <button mat-raised-button color="primary" (click)="getBankAccount()">Show all account</button>
+</div>
