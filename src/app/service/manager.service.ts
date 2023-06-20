@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { Operator } from '../model/operator';
 import { BankAccount } from '../model/bank-account';
+import { Manager } from '../model/manager';
+import { User } from '../model/user';
+import { Department } from '../model/department';
 
 @Injectable({
   providedIn: 'root'
@@ -163,6 +166,42 @@ export class ManagerService {
     })
     res.subscribe(data => {});
     return res
+  }
 
+  //-manager--
+  getManagerList() : Observable<Manager[]>{
+    return this.http.get<Manager[]>(`${this.scheduleApiUrl}`);
+  }
+
+  getUserHaveNotBeenChosen(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.scheduleApiUrl}`+"/user-have-not-been-chosen");
+  }
+
+  getDepartmentHaveNotBeenChosen(): Observable<Department[]>{
+    return this.http.get<Department[]>(`${this.scheduleApiUrl}`+"/department-have-not-been-chosen");
+  }
+
+  getUserByUsername(username : string) : Observable<User>{
+    return this.http.get<User>(`${this.scheduleApiUrl}`+"/showUser/"+`${username}` );
+  }
+
+  getDepartmentById(id: number) :Observable<Department>{
+    return this.http.get<Department>(`${this.scheduleApiUrl}`+"/showDepartment/"+`${id}` );
+  }
+
+  addManager(manager : Manager) : Observable<Manager>{
+    return this.http.post<Manager>(`${this.scheduleApiUrl}`+"/add-manager", manager );
+  }
+
+  getManagerById(id: number) :Observable<Manager>{
+    return this.http.get<Manager>(`${this.scheduleApiUrl}/${id}` );
+  }
+
+  updateManager(id: number, manager: Manager): Observable<Object>{
+    return this.http.put(`${this.scheduleApiUrl}`+"/update-manager/"+`${id}`, manager );
+  }
+
+  deleteManager(id ?: number): Observable<Object>{
+    return this.http.delete(`${this.scheduleApiUrl}`+"/delete-manager/"+`${id}`);
   }
 }

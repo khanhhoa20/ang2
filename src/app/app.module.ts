@@ -44,6 +44,13 @@ import { ListOperatorComponent } from './manager/list-operator/list-operator.com
 import { SchedulePlanComponent } from './manager/schedule-plan/schedule-plan.component';
 import { ManagerSidebarComponent } from './shared/components/manager/manager-sidebar/manager-sidebar.component';
 import { BankAccountComponent } from './manager/bank-account/bank-account.component'
+import { PopUpComponent } from './manager/pop-up/pop-up.component';
+import { DeleteConfirmComponent } from './manager/delete-confirm/delete-confirm.component';
+import { ViewManagerComponent } from './manager/view-manager/view-manager.component';
+import { ManagerListComponent } from './manager/manager-list/manager-list.component';
+import { AddManagerComponent } from './manager/add-manager/add-manager.component';
+import { UpdateManagerComponent } from './manager/update-manager/update-manager.component';
+
 // date-picker
 //https://github.com/fetrarij/ngx-daterangepicker-material
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
@@ -77,6 +84,12 @@ import { DialogOverviewExampleDialogComponent } from './manager/dialog-overview-
     BankAccountComponent,
     FindAllBankAccountComponent,
     DialogOverviewExampleDialogComponent,
+    ManagerListComponent,
+    AddManagerComponent,
+    UpdateManagerComponent,
+    PopUpComponent,
+    DeleteConfirmComponent,
+    ViewManagerComponent,
   ],
   imports: [
     BrowserModule,

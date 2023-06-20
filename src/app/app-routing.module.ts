@@ -17,6 +17,9 @@ import { ListOperatorComponent } from './manager/list-operator/list-operator.com
 import { SchedulePlanComponent } from './manager/schedule-plan/schedule-plan.component';
 import { BankAccountComponent } from './manager/bank-account/bank-account.component';
 import { FindAllBankAccountComponent } from './manager/find-all-bank-account/find-all-bank-account.component';
+import { AddManagerComponent } from './manager/add-manager/add-manager.component';
+import { UpdateManagerComponent } from './manager/update-manager/update-manager.component';
+import { ManagerListComponent } from './manager/manager-list/manager-list.component';
 
 
 const routes: Routes = [
@@ -52,10 +55,10 @@ const routes: Routes = [
       }
     ]
   },
-  { 
+  {
     path: 'manager',
     component: DefaultLayoutComponent,
-    children:[
+    children: [
       {
         path: 'view-list-operator',
         component: ListOperatorComponent
@@ -72,7 +75,18 @@ const routes: Routes = [
         path: 'find-all-bank-account',
         component: FindAllBankAccountComponent
       }
-      
+      , {
+        path: 'list',
+        component: ManagerListComponent
+      },
+      {
+        path: 'add-manager',
+        component: AddManagerComponent
+      },
+      {
+        path: 'update-manager/:id',
+        component: UpdateManagerComponent
+      },
 
     ]
   }
