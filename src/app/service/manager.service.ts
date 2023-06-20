@@ -8,13 +8,21 @@ import { BankAccount } from '../model/bank-account';
   providedIn: 'root'
 })
 export class ManagerService {
-  url = "http://localhost:9090/tpbank/"
+  url = "http://localhost:9090/tpbank"
   viewAllOperatorUrl = "manager/listAllOperator"
   loginUrl = "manager/login"
   listOperatorUrl = "manager/listAllOperator"
   createOperatorUrl = "manager/create-operator"
   editOperatorUrl = "manager/edit-operator"
   deleteUrl = "manager/delete-operator"
+
+
+  updateBankAccountUrl = "manager/updateBankAccount"
+  createbankBankAccountUrl = "manager/createBankAccount"
+  findBankAccountByIdUrl = "manager/findAccountById/"
+  deleteBankAccountUrl = "manager/deleteBankAccount/"
+  getAllBankAccountUrl = "manager/getAllBankAccount"
+
 
   private scheduleApiUrl: string = 'http://localhost:9090/tpbank/manager';
   private addScheduleApiUrl: string = 'http://localhost:9090/tpbank/manager/addSchedulePlan';
@@ -93,9 +101,9 @@ export class ManagerService {
   }
 
 
-  // bankingAccount
+  // function create bank account for customer ThanhPhuc
   createBankAccount(bankAccount: BankAccount): Observable<string> {
-    return this.http.post(`${this.url}manager/createBankAccount`, bankAccount, { responseType: 'arraybuffer' })
+    return this.http.post(`${this.url}/${this.createbankBankAccountUrl}`, bankAccount, { responseType: 'arraybuffer' })
       .pipe(
         catchError((error: HttpErrorResponse) => {
           // Handle the error here
@@ -111,12 +119,14 @@ export class ManagerService {
       );
   }
 
+  //Get all bank acount to show Thanhphuc
   getAllBankAccount(): Observable<BankAccount[]> {
-    return this.http.get<BankAccount[]>(`${this.url}manager/getAllBankAccount`);
+    return this.http.get<BankAccount[]>(`${this.url}/${this.getAllBankAccountUrl}`);
   }
 
+  //Delete bank account ThanhPhuc
   deleteBankAccount(id: number): Observable<any> {
-    return this.http.delete(`${this.url}manager/deleteBankAccount/${id}`, { responseType: 'arraybuffer' }).pipe(
+    return this.http.delete(`${this.url}/${this.deleteBankAccountUrl}${id}`, { responseType: 'arraybuffer' }).pipe(
       catchError((error: any) => {
         // Handle the error here
         console.error('An error occurred:', error);
@@ -131,8 +141,9 @@ export class ManagerService {
     );
   }
 
+  //Find bank account by id
   findBankAccountById(id: number): Observable<any> {
-    const url = `${this.url}manager/findAccountById/${id}`;
+    const url = `${this.url}/${this.findBankAccountByIdUrl}${id}`;
     return this.http.get<BankAccount>(url)
       .pipe(
         catchError((error: HttpErrorResponse) => {
@@ -147,7 +158,7 @@ export class ManagerService {
   updateBankAccount(bankAccount: BankAccount): Observable<string> {
     console.log("Before updateBankAccount API call");
     console.log(bankAccount)
-    let res = this.http.put(`${this.url}manager/updateBankAccount`, bankAccount, {
+    let res = this.http.put(`${this.url}/${this.updateBankAccountUrl}`, bankAccount, {
       responseType: 'text'
     })
     res.subscribe(data => {});
