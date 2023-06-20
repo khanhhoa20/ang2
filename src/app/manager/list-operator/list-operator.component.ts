@@ -74,10 +74,21 @@ export class ListOperatorComponent implements OnInit {
   }
 
   addOperator(operatorForm: NgForm) {
-    this.msg = this.addComp.addOperator(operatorForm);
-    this.getListOperator();
+    this.msg = this.managerService.saveOperator(
+      operatorForm.value.phone,
+      operatorForm.value.address,
+      operatorForm.value.email,
+      operatorForm.value.fullname,
+      operatorForm.value.status,
+      operatorForm.value.username,
+      operatorForm.value.password,
+      operatorForm.value.departmentId
+    ).subscribe(res => {
+      console.log(res)
+      this.ngOnInit();
+      return res
+    })
     this.modalService.dismissAll();
-    this.ngOnInit();
   }
 
   openEdit(editForm: any, operator: Operator) {
