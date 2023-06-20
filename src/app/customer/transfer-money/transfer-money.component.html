@@ -1,0 +1,38 @@
+<style>
+    #changepassID{
+        background-color: #FFF;
+        box-shadow: 2px 2px 0.5 #000;
+        /* margin-right: 20px; */
+        border-radius: 5px;
+        border: 1px solid #949494;
+    }
+  </style>
+  
+  <form class="form-inline"  >
+      <!-- #cusdetailForm="ngForm" -->
+      <!-- (ngSubmit)="cusdetail(cusdetailForm, editcusdetailForm)" -->
+      <div class="form-group mb-2">
+        <input ngModel type="text" class="form-control-plaintext p-2 mr-3 bg-blue" id="changepassID" value="" placeholder="CustomerID" name="changepassID">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2" >Confirm</button>
+  </form>
+  <hr>
+  <form #editpassForm="ngForm"  class="p-4">
+    <!-- [formGroup]="cusdetailFormgroup" (ngSubmit)="editcus()" -->
+  
+    <div class="form-group">
+      <label for="formGroupuYourNameInput">FROM</label>
+      <input readonly formControluserName="YourName" type="YourName" class="form-control col-md-6" id="YourName4" placeholder="YourName">
+    </div>
+    <div class="form-group">
+      <label for="formGrouppartners">TO</label>
+      <input formControlName="partners" type="partners" class="form-control col-md-6" id="inputpartners4" placeholder="YourPartners">
+    </div>
+
+    <div class="form-group">
+        <label for="formGroupmoney">With</label>
+        <input formControlName="money" type="money" class="form-control col-md-6" id="inputmoney4" placeholder="Ex: 1000$">
+      </div>
+    
+    <button type="submit" class="btn btn-primary">Transfer</button>
+  </form>
