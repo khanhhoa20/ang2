@@ -1,0 +1,16 @@
+form{
+    font-size: 18px;
+    align-items: center;
+    margin-top: 50px;
+    display: inline-block;
+}
+
+
+input{
+    padding: 20px;
+}
+
+mat-form-field{
+    width: 400px;
+}
+

@@ -1,0 +1,38 @@
+table,
+th,
+td {
+    border: 1px solid black;
+    vertical-align: middle;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    color: orange;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.viewTwoBtns {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: space-around;
+}
+
+.actionBtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: none;
+    /* border-left: none;
+    border-right: none; */
+}

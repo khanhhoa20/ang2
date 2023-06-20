@@ -3,7 +3,7 @@ export class User {
     userName: string
     userPass: string
     role: string
-    constructor(userID: number,
+    constructor(userID: number|null,
         userName: string,
         userPass: string,
         role: string) {
@@ -12,5 +12,6 @@ export class User {
         this.userName = userName
         this.userPass = userPass
     }
-}
-
+  }
+  
+  

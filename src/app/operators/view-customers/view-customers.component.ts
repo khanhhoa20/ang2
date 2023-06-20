@@ -44,7 +44,7 @@ export class ViewCustomersComponent implements OnInit {
       this.customers = data
     })
   }
-  deleteCustomer1(cusId:number){
+  deleteCustomer1(cusId:number|null){
     let respone = this.http.delete(this.url+this.apiDeleteCustomer+cusId,{responseType : 'text' as 'json'})
     respone.subscribe((data)=>{
       console.log(data);

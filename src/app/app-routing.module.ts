@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // import { OperatorComponent } from './operator/operator.component';
 import { LoginComponent } from './login/login.component';
 import { DefaultComponent } from './layout/operator/default/default.component';
+import { DefaultLayoutComponent } from './layout/manager/default-layout/default-layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OperatorComponent } from './operators/operator/operator.component';
 import { ViewCustomersComponent } from './operators/view-customers/view-customers.component';
@@ -12,6 +13,13 @@ import { LockBankAccountComponent } from './operators/lock-bank-account/lock-ban
 import { UnlockBankAccountComponent } from './operators/unlock-bank-account/unlock-bank-account.component';
 import { DepositMoneyComponent } from './operators/deposit-money/deposit-money.component';
 import { WidthrawMoneyComponent } from './operators/widthraw-money/widthraw-money.component';
+import { ListOperatorComponent } from './manager/list-operator/list-operator.component';
+import { SchedulePlanComponent } from './manager/schedule-plan/schedule-plan.component';
+import { BankAccountComponent } from './manager/bank-account/bank-account.component';
+import { FindAllBankAccountComponent } from './manager/find-all-bank-account/find-all-bank-account.component';
+import { AddManagerComponent } from './manager/add-manager/add-manager.component';
+import { UpdateManagerComponent } from './manager/update-manager/update-manager.component';
+import { ManagerListComponent } from './manager/manager-list/manager-list.component';
 
 
 const routes: Routes = [
@@ -44,18 +52,44 @@ const routes: Routes = [
       {
         path: 'widthraw-money',
         component: WidthrawMoneyComponent
-      },
-      // {
-      //   path: '',
-      //   component: DashboardComponent
-      // },
-      // {
-      //   path: 'view-list-operator',
-      //   component: OperatorComponent
-      // }
+      }
     ]
   },
-  // { path: 'view-list-operator', component: OperatorComponent },
+  {
+    path: 'manager',
+    component: DefaultLayoutComponent,
+    children: [
+      {
+        path: 'view-list-operator',
+        component: ListOperatorComponent
+      },
+      {
+        path: 'view-schedule-plan',
+        component: SchedulePlanComponent
+      },
+      {
+        path: 'create-banking-account',
+        component: BankAccountComponent
+      },
+      {
+        path: 'find-all-bank-account',
+        component: FindAllBankAccountComponent
+      }
+      , {
+        path: 'list',
+        component: ManagerListComponent
+      },
+      {
+        path: 'add-manager',
+        component: AddManagerComponent
+      },
+      {
+        path: 'update-manager/:id',
+        component: UpdateManagerComponent
+      },
+
+    ]
+  }
 ]
 @NgModule({
   declarations: [],
