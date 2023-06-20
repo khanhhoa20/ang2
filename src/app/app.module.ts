@@ -51,7 +51,7 @@ import { UpdateManagerComponent } from './manager/update-manager/update-manager.
 
 // date-picker
 //https://github.com/fetrarij/ngx-daterangepicker-material
-// import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { MatSelectModule } from '@angular/material/select';
 import { FindAllBankAccountComponent } from './manager/find-all-bank-account/find-all-bank-account.component';
 import { DialogOverviewExampleDialogComponent } from './manager/dialog-overview-example-dialog/dialog-overview-example-dialog.component';
@@ -129,7 +129,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatMenuModule,
     MatListModule,
     RouterModule,
-    // NgxDaterangepickerMd.forRoot(),
+    NgxDaterangepickerMd.forRoot(),
     NgbModule,
     ReactiveFormsModule,
     BrowserModule,
