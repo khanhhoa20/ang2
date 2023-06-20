@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   username: string = ''
   password: string = ''
   result?: string
-  constructor(private operService: OperatorService, private cusService: CustomerService,private managerService: ManagerService,private router: Router) {
+  constructor(private operService: OperatorService, private cusService: CustomerService, private managerService: ManagerService, private router: Router) {
 
   }
 
@@ -26,19 +26,13 @@ export class LoginComponent implements OnInit {
     this.username = myForm.value.username
     this.password = myForm.value.password
     this.operService.login(this.username, this.password).subscribe(data => {
-    this.result = data
+      this.result = data
       if (data.includes("operator")) {
         this.router?.navigateByUrl("operator/view-list-customer")
       }
-    })
-    this.managerService.login(this.username, this.password).subscribe(data => {
-      this.result = data
       if (data.includes("manager")) {
         this.router?.navigateByUrl("manager/view-list-operator")
       }
-    })
-    this.cusService.login(this.username, this.password).subscribe(data => {
-      this.result = data
       if (data.includes("customer")) {
         this.router?.navigateByUrl("customer/cusdetail")
       }
