@@ -9,25 +9,17 @@ import { CustomerService } from 'src/app/service/customer.service';
 @Component({
   selector: 'app-find-account-by-id-stk',
   templateUrl: './find-account-by-id-stk.component.html',
-  styleUrls: ['./find-account-by-id-stk.component.css']
+  styleUrls: ['./find-account-by-id-stk.component.css'],
 })
-export class FindAccountByIdStkComponent implements OnInit{
-
+export class FindAccountByIdStkComponent implements OnInit {
   bankaccount: BankAccount = new BankAccount(
     0,
     0,
-    "",
-    "",
-    new Customer(0,
-      "",
-      "",
-      "",
-      "",
-      0,
-      "",
-      new User(0, "","","")),
+    '',
+    '',
+    new Customer(0, '', '', '', '', 0, '', new User(0, '', '', '')),
     []
-  )
+  );
 
   accdetailFormgroup = new FormGroup({
     bankName: new FormControl(),
@@ -35,37 +27,32 @@ export class FindAccountByIdStkComponent implements OnInit{
     customerName: new FormControl(),
   });
 
-  constructor(private customerService: CustomerService, private modalService: NgbModal, private fb: FormBuilder) {
-
-  }
+  constructor(
+    private customerService: CustomerService,
+    private modalService: NgbModal,
+    private fb: FormBuilder
+  ) {}
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.accdetailFormgroup = this.fb.group({
       bankName: new FormControl(),
       balance: new FormControl(),
       customerName: this.bankaccount.customer.customerName,
-
-    })
+    });
   }
-
 
   accdetail(accdetailForm: NgForm) {
-    this.customerService.accdetail(
-      accdetailForm.value.accdetailID
-    ).subscribe(res => {
-      this.bankaccount = res
-      this.accdetailFormgroup.patchValue({
-        bankName: this.bankaccount.bankName,
-        balance: this.bankaccount.balance,
-        customerName: this.bankaccount.customer.customerName,
-      })
-      console.log(accdetailForm.value.accdetailID)
-    })
-    console.log()
-
+    this.customerService
+      .accdetail(accdetailForm.value.accdetailID)
+      .subscribe((res) => {
+        this.bankaccount = res;
+        this.accdetailFormgroup.patchValue({
+          bankName: this.bankaccount.bankName,
+          balance: this.bankaccount.balance,
+          customerName: this.bankaccount.customer.customerName,
+        });
+        console.log(accdetailForm.value.accdetailID);
+      });
+    console.log();
   }
-
-
 }
-
-

@@ -8,7 +8,7 @@ describe('WidthrawMoneyComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WidthrawMoneyComponent]
+      declarations: [WidthrawMoneyComponent],
     });
     fixture = TestBed.createComponent(WidthrawMoneyComponent);
     component = fixture.componentInstance;

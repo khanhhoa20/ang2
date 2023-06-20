@@ -8,7 +8,7 @@ describe('FindAccountByIdStkComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FindAccountByIdStkComponent]
+      declarations: [FindAccountByIdStkComponent],
     });
     fixture = TestBed.createComponent(FindAccountByIdStkComponent);
     component = fixture.componentInstance;

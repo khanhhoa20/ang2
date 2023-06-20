@@ -8,7 +8,7 @@ describe('RegisterCreateBankAccountComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RegisterCreateBankAccountComponent]
+      declarations: [RegisterCreateBankAccountComponent],
     });
     fixture = TestBed.createComponent(RegisterCreateBankAccountComponent);
     component = fixture.componentInstance;

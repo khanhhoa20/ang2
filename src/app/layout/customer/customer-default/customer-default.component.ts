@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-customer-default',
   templateUrl: './customer-default.component.html',
-  styleUrls: ['./customer-default.component.css']
+  styleUrls: ['./customer-default.component.css'],
 })
-export class CustomerDefaultComponent {
-
+export class CustomerDefaultComponent implements OnInit {
+  sideBarOpen = true;
+  constructor() {}
+  ngOnInit(): void {}
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 }

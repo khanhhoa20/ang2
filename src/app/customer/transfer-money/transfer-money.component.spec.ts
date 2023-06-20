@@ -8,7 +8,7 @@ describe('TransferMoneyComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TransferMoneyComponent]
+      declarations: [TransferMoneyComponent],
     });
     fixture = TestBed.createComponent(TransferMoneyComponent);
     component = fixture.componentInstance;

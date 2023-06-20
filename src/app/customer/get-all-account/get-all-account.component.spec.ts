@@ -8,7 +8,7 @@ describe('GetAllAccountComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [GetAllAccountComponent]
+      declarations: [GetAllAccountComponent],
     });
     fixture = TestBed.createComponent(GetAllAccountComponent);
     component = fixture.componentInstance;
