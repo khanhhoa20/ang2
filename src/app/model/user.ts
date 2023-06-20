@@ -1,5 +1,5 @@
 export class User {
-    userID: number
+    userID: number|null
     userName: string
     userPass: string
     role: string
