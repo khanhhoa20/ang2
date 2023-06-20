@@ -1,7 +1,7 @@
 import { User } from "./user"
 
 export class Customer {
-    customerId: number
+    customerId: number|null
     customerName: string
     customerAddress: string
     customerPhone: string
@@ -9,7 +9,7 @@ export class Customer {
     customerNationalId: number
     customerDob: string
     user: User
-    constructor(customerId: number,
+    constructor(customerId: number|null,
         customerName: string,
         customerAddress: string,
         customerPhone: string,

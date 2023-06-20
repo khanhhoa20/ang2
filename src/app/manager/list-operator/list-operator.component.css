@@ -1,0 +1,25 @@
+.border {
+    padding: 10px;
+}
+
+.btn {
+    margin-right: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.fa {
+    margin-right: 10px;
+}
+
+table .btn {
+    margin: 2px;
+}
+
+.table-bordered {
+    border: 2px solid #dee2e6;
+}
+
+::ng-deep ngb-modal-backdrop {
+    z-index: 1050 !important;
+}
