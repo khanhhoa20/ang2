@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { User } from 'src/app/model/user';
 import { ManagerService } from 'src/app/service/manager.service';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 
 interface Bank {
   value: string;
@@ -55,7 +56,7 @@ export class BankAccountComponent implements OnInit {
     { value: 'Active', lockStatus: 'Active' },
   ];
 
-  constructor(private bankAccountService: ManagerService) {}
+  constructor(private bankAccountService: ManagerService, private dialogRef: MatDialog,) {}
 
   ngOnInit(): void {}
   saveBankAccount() {
@@ -79,15 +80,14 @@ export class BankAccountComponent implements OnInit {
       customer,
       []
     );
-    console.log(this.bankAccount)
+    // console.log(this.bankAccount)
     this.bankAccountService.createBankAccount(this.bankAccount).subscribe(
       data => {
-        alert(data);
+        this.dialogRef.open(PopUpComponent, { data : data})
+        // alert(data);
       },
       error => {
-        console.log(error);
-        console.log(this.userName)
-        alert('Cannot create Account');
+        this.dialogRef.open(PopUpComponent, { data : error})
       }
     );
   }

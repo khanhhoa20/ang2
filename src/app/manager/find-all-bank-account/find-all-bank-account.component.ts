@@ -5,6 +5,7 @@ import { DialogOverviewExampleDialogComponent } from '../dialog-overview-example
 import { MatDialog } from '@angular/material/dialog';
 import { BankAccount } from 'src/app/model/bank-account';
 import { ManagerService } from 'src/app/service/manager.service';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 @Component({
   selector: 'app-find-all-bank-account',
   templateUrl: './find-all-bank-account.component.html',
@@ -16,7 +17,7 @@ export class FindAllBankAccountComponent implements OnInit {
   ngOnInit(): void {
     // this.getBankAccount();
   }
-  constructor(private bankAccountService: ManagerService, public dialog: MatDialog){}
+  constructor(private bankAccountService: ManagerService, public dialogRef: MatDialog){}
   getBankAccount(){
     this.bankAccountService.getAllBankAccount().subscribe(data => {
       this.bankAccount = data;
@@ -28,8 +29,7 @@ export class FindAllBankAccountComponent implements OnInit {
 
     if (confirmation) {
         this.bankAccountService.deleteBankAccount(id).subscribe(data => {
-            console.log(data);
-            alert("Deleted");
+            this.dialogRef.open(PopUpComponent, {data: data})
             this.getBankAccount();
         });
     }
@@ -41,7 +41,7 @@ export class FindAllBankAccountComponent implements OnInit {
   }
 
   openDialog(element: BankAccount): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
+    const dialogRef = this.dialogRef.open(DialogOverviewExampleDialogComponent, {
       height: '400px',
       width: '600px',
       data: element
@@ -49,5 +49,16 @@ export class FindAllBankAccountComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  id: number =1;
+  bankAccountByID?: BankAccount;
+  getBankAccountById(id: number){
+    this.bankAccountService.findBankAccountById(id).subscribe(data=>{
+      this.bankAccountByID = data;
+    }, (error: string)=>{
+      alert(error);
+      console.log(error)
+    })
   }
 }
