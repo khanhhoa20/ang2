@@ -18,6 +18,7 @@ export class OperatorService {
   depositMoneyUrl = "operator/deposit"
   deleteCustomer = "operator/delete-customer/"
   updateCustomer = "operator/update-customer"
+  createBankAccount = "operator/create-bank-account"
 
 
 
@@ -70,6 +71,26 @@ export class OperatorService {
     }, {
       responseType: 'text'
     })
+  }
+  createBankAccount1(balance:string,customerName:string,customerAddress:string,customerPhone:string,customerEmail:string,customerNationalId:number,userName:string,userPass:string,dob:string):Observable<string>{
+    return this.http.post(`${this.url}/${this.createBankAccount}`,{
+      "balance": balance,
+      "customer":{
+      "customerDob":dob,
+      "customerName":customerName,
+      "customerAddress":customerAddress,
+      "customerPhone":customerPhone,
+      "customerEmail":customerEmail,
+      "customerNationalId":customerNationalId,
+      "user":{
+        "userName":userName,
+        "userPass":userPass
+      }
+      }
+      
+
+    },{responseType: 'text'}
+    )
   }
   updateCustomer1(customerName:string,customerAddress:string,cusPhone:string,userPass:string): Observable<string>{
     return this.http.put(`${this.url}/${this.updateCustomer}`,{
