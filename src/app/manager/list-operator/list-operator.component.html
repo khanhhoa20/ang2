@@ -79,7 +79,7 @@
             <div class="form-group">
                 <label for="address">Address</label>
                 <div class="input-group">
-                    <input id="address" class="form-control" name="address" ngModel>
+                    <textarea id="address" class="form-control" name="address" ngModel></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -98,7 +98,7 @@
                 </div>
             </div>
         </div>
-        <p>{{msg}}</p>
+        <span class="text-danger">{{msg}}</span>
         <div class="modal-footer">
             <button type="submit" data-dismiss="modal" class="btn btn-info">Submit</button>
             <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Cancel</button>
@@ -150,7 +150,8 @@
             <div class="form-group">
                 <label for="edit-address">Address</label>
                 <div class="input-group">
-                    <input id="edit-address" class="form-control" name="edit-address" formControlName="address">
+                    <textarea id="edit-address" class="form-control" name="edit-address"
+                        formControlName="address"></textarea>
                 </div>
             </div>
             <div class="form-group">

@@ -13,7 +13,7 @@ import { ManagerService } from 'src/app/service/manager.service';
 
 })
 export class ListOperatorComponent implements OnInit {
-  msg?: any
+  msg?: string
   operator?: Array<Operator>
   status: Array<string> = ['active', 'inactive']
   closeResult: string = ''
@@ -74,7 +74,7 @@ export class ListOperatorComponent implements OnInit {
   }
 
   addOperator(operatorForm: NgForm) {
-    this.msg = this.managerService.saveOperator(
+    this.managerService.saveOperator(
       operatorForm.value.phone,
       operatorForm.value.address,
       operatorForm.value.email,
@@ -85,10 +85,14 @@ export class ListOperatorComponent implements OnInit {
       operatorForm.value.departmentId
     ).subscribe(res => {
       console.log(res)
+      this.msg = res
       this.ngOnInit();
       return res
     })
-    this.modalService.dismissAll();
+    if (this.msg?.includes("sucessfully")) {
+      this.modalService.dismissAll();
+    }
+
   }
 
   openEdit(editForm: any, operator: Operator) {

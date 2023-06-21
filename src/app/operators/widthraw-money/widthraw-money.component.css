@@ -1,0 +1,23 @@
+.title{
+    color:red
+}
+.input{
+    margin-left: 10px;
+}
+.submit-bt{
+    margin-top: 2px;
+    margin-left: 10px;
+}
+th, td{ 
+padding: 4px;
+   text-align: left;
+  }
+.error{
+    color: rgb(124, 124, 234);
+    margin-left: 10px;
+  }
+.mess{
+    margin-top: -0.25px;
+    margin-left: 175px;
+    color: rgb(19, 100, 187);
+}

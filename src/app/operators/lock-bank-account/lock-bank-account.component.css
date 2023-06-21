@@ -1,7 +1,16 @@
 .title{
-    color:red
+    color: red;
+    text-align: center;
+    font-size: 22px;
 }
 .input{
+    
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.full-width{
+    width: 100%;
+}
+.btSubmit{
+    width: 100%;
 }

@@ -1,1 +1,139 @@
-<p>create-bank-account works!</p>
+
+<!-- <form #myForm="ngForm" (ngSubmit)="submit(myForm)">
+    <table>
+        <tr>
+            <th>Customer Name</th>
+            <td>
+                <input class="input" type="text" name="name" ngModel required>
+            </td>
+        </tr>
+        <tr>
+            <th>Customer Phone</th>
+            <td>
+                <input class="input" type="text" name="phone" ngModel required pattern="[0-9]*">
+            </td>
+        </tr>
+        <tr>
+            <th>Customer Address</th>
+            <td>
+                <input class="input" type="text" name="address" ngModel required>
+            </td>
+        </tr>
+        <tr>
+            <th>Customer Email</th>
+            <td>
+                <input class="input" type="text" name="email" ngModel required>
+            </td>
+        </tr>
+        <tr>
+            <th>Customer NationalId</th>
+            <td>
+                <input class="input" type="text" name="nationalId" ngModel required>
+            </td>
+        </tr>
+        <tr>
+            <th>Balance</th>
+            <td>
+                <input class="input" type="text" name="balance" ngModel required pattern="[0-9]*">
+            </td>
+        </tr>
+        <tr>
+            <th>Customer BankName</th>
+            <td>
+                <input class="input" type="text" name="bankname" ngModel required>
+            </td>
+        </tr>
+        <tr>
+            <th>Customer LockStatus</th>
+            <td>
+                <input class="input" type="text" name="lockstatus" ngModel required>
+            </td>
+        </tr>
+
+        <tr>
+            <th>UserName</th>
+            <td>
+                <input class="input" type="text" name="username" ngModel required>
+            </td>
+        </tr>
+        <tr>
+            <th>User Role</th>
+            <td>
+                <input class="input" type="text" name="role" ngModel required>
+            </td>
+        </tr>
+        <tr>
+            <th>UserPassword</th>
+            <td>
+                <input class="input" type="text" name="password" ngModel required>
+            </td>
+        </tr>
+
+
+        <tr>
+            <th></th>
+            <td>
+                <button class="submit-bt" type="submit" [disabled]="myForm.invalid">
+                    Create
+                </button>
+
+                <span *ngIf="myForm.invalid" class="error">Please enter available National Id and Email and Phone</span>
+            </td>
+        </tr>
+    </table>
+</form>
+<p class="mess">{{message}}</p> -->
+
+
+
+<p class="title">Create Bank Account</p>
+<form #myForm="ngForm" (ngSubmit)="submit(myForm)">
+    <fieldset abled>
+      <legend>Customer Name</legend>
+      <div class="mb-3">
+        <label  class="form-label">Customer Name</label>
+        <input type="text"  class="form-control" placeholder="Enter CustomerName" name="name" ngModel required>
+      </div>
+      <legend>Customer Phone</legend>
+      <div class="mb-3">
+        <label for="disabledTextInput" class="form-label">Customer Phone</label>
+        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter Customer Phone" name="phone" ngModel required pattern="[0-9]*">
+      </div>
+      <legend>Customer Address</legend>
+      <div class="mb-3">
+        <label for="disabledTextInput" class="form-label">Customer Address</label>
+        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter Customer Address" name="address" ngModel required>
+      </div>
+      <legend>Customer Day of Birth</legend>
+      <label for="disabledTextInput" class="form-label">Customer Day of Birth</label>
+      <input type="date" id="birthday" name="birthday" ngModel required>
+      <legend>Customer Email</legend>
+      <div class="mb-3">
+        <label for="disabledTextInput" class="form-label">Customer Email</label>
+        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter Customer Email" name="email" ngModel required>
+      </div>
+      <legend>Customer Balance</legend>
+      <div class="mb-3">
+        <label for="disabledTextInput" class="form-label">Bank Account Balance</label>
+        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter Balance" name="balance" ngModel required pattern="[0-9]*">
+      </div>
+      <legend>Customer NationalId</legend>
+      <div class="mb-3">
+        <label for="disabledTextInput" class="form-label">Customer NationalId</label>
+        <input type="text" id="disabledTextInput" class="form-control" placeholder="Enter Customer NationalId" name="nationalId" ngModel required pattern="[0-9]*">
+      </div>
+      <legend>UserName</legend>
+      <div class="mb-3">
+        <label for="disabledTextInput" class="form-label">UserName</label>
+        <input type="text" id="disabledTextInput" class="form-control" placeholder="UserName" name="username" ngModel required>
+      </div>
+      <legend>UserPassword</legend>
+      <div class="mb-3">
+        <label for="disabledTextInput" class="form-label">UserPassword</label>
+        <input type="password" id="disabledTextInput" class="form-control" placeholder="UserPassword" name="password" ngModel required>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>
+    </fieldset>
+  </form>
+  <p class="mess">{{message}}</p>
