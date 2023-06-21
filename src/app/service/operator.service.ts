@@ -19,6 +19,7 @@ export class OperatorService {
   deleteCustomer = "operator/delete-customer/"
   updateCustomer = "operator/update-customer"
   createBankAccount = "operator/create-bank-account"
+  widthrawMoneyUrl = "operator/withdraw"
 
 
 
@@ -104,6 +105,19 @@ export class OperatorService {
     },{
       responseType: 'text'
     });
+  }
+
+  widthrawMoney(amount: number, cusPhone: string): Observable<string> {
+    return this.http.put(`${this.url}/${this.widthrawMoneyUrl}`, {
+      "transactionAmount": amount,
+      "bankAccount": {
+        "customer": {
+          "customerPhone": cusPhone
+        }
+      }
+    }, {
+      responseType: 'text'
+    })
   }
 
 }
