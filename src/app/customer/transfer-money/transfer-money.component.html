@@ -1,5 +1,5 @@
 <style>
-    #changepassID{
+    #partnersPhone{
         background-color: #FFF;
         box-shadow: 2px 2px 0.5 #000;
         /* margin-right: 20px; */
@@ -8,30 +8,32 @@
     }
   </style>
   
-  <form class="form-inline"  >
-      <!-- #cusdetailForm="ngForm" -->
-      <!-- (ngSubmit)="cusdetail(cusdetailForm, editcusdetailForm)" -->
+  <form class="form-inline" #partnersdetailForm="ngForm" (ngSubmit)="partnersdetail(partnersdetailForm, transferMoneyForm)" >
+      
       <div class="form-group mb-2">
-        <input ngModel type="text" class="form-control-plaintext p-2 mr-3 bg-blue" id="changepassID" value="" placeholder="CustomerID" name="changepassID">
+        <input  ngModel type="text" class="form-control-plaintext p-2 mr-3 bg-blue" id="partnersPhone" value="" placeholder="PartnersPhone" name="partnersPhone">
       </div>
       <button type="submit" class="btn btn-primary mb-2" >Confirm</button>
   </form>
   <hr>
-  <form #editpassForm="ngForm"  class="p-4">
-    <!-- [formGroup]="cusdetailFormgroup" (ngSubmit)="editcus()" -->
-  
-    <div class="form-group">
-      <label for="formGroupuYourNameInput">FROM</label>
-      <input readonly formControluserName="YourName" type="YourName" class="form-control col-md-6" id="YourName4" placeholder="YourName">
-    </div>
-    <div class="form-group">
-      <label for="formGrouppartners">TO</label>
-      <input formControlName="partners" type="partners" class="form-control col-md-6" id="inputpartners4" placeholder="YourPartners">
-    </div>
-
-    <div class="form-group">
-        <label for="formGroupmoney">With</label>
-        <input formControlName="money" type="money" class="form-control col-md-6" id="inputmoney4" placeholder="Ex: 1000$">
+  <form #transferMoneyForm="ngForm" [formGroup]="partnersdetailFormgroup" (ngSubmit)="transfermoney()" class="p-4">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputName4">Name</label>
+          <input readonly formControlName="customerName" type="text" class="form-control" id="inputName4" placeholder="Name">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputBankName4">Bank name</label>
+          <input readonly formControlName="bankName" type="text" class="form-control" id="inputBankName4" placeholder="Bank name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputMoney">Money</label>
+        <input formControlName="money" type="text" class="form-control col-md-6" id="inputMoney" placeholder="Ex: 1000$">
+      </div>
+      <div class="form-group">
+        <label for="inputcusPhone">From</label>
+        <input formControlName="transferPhone" type="text" class="form-control col-md-6" id="inputcusPhone" placeholder="Your phone number">
       </div>
     
     <button type="submit" class="btn btn-primary">Transfer</button>
