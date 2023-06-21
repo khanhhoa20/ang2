@@ -96,3 +96,41 @@
 <div style="align-items: center;justify-content: center;display: flex; margin-top: 50px;">
     <button mat-raised-button color="primary" (click)="getBankAccount()">Show all account</button>
 </div>
+
+
+
+
+
+
+
+
+
+
+<div style="display: flex; margin: 50px; justify-content: center; flex-direction: column; align-items: center;">
+
+    <h2 style="text-align: center;">Find Bank Account</h2>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Balance</th>
+        <th>Lock Status</th>
+        <th>Bank Name</th>
+    </tr>
+
+    <tr *ngIf="bankAccount">
+        <td>{{ bankAccountByID?.bankAccountId }}</td>
+        <td>{{ bankAccountByID?.balance }}</td>
+        <td>{{ bankAccountByID?.lockStatus }}</td>
+        <td>{{ bankAccountByID?.bankName }}</td>
+    </tr>
+</table>
+
+<mat-form-field class="example-full-width" style="    width: 500px;
+height: 85px;">
+    <mat-label>Leave BankAccountID</mat-label>
+    <textarea matInput placeholder="1" [(ngModel)]="this.id"></textarea>
+</mat-form-field>
+<!-- Id: <input type="text" [(ngModel)]="this.id" placeholder="Enter bank account ID"> -->
+<button mat-raised-button color="primary" class="btn btn-primary" (click)="getBankAccountById(this.id)">Find</button>
+</div>

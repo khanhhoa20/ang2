@@ -1,7 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { BankAccount } from 'src/app/model/bank-account';
 import { ManagerService } from 'src/app/service/manager.service';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 interface DialogData {
   animal: string;
   name: string;
@@ -25,7 +26,7 @@ export class DialogOverviewExampleDialogComponent {
     public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: BankAccount,
     private bankAccountService: ManagerService,
-
+    public dialogRef1: MatDialog
   ) {}
   bankAccount: BankAccount = this.data;
 
@@ -45,9 +46,9 @@ export class DialogOverviewExampleDialogComponent {
 
   updateFunc(){
     console.log(this.bankAccount);
-    let res = this.bankAccountService.updateBankAccount(this.bankAccount)
-    // console.log(this.bankAccountService.updateBankAccount(this.bankAccount)) ;
-    console.log(res)
+    this.bankAccountService.updateBankAccount(this.bankAccount).subscribe(data=>{
+      this.dialogRef1.open(PopUpComponent, {data: data})
+    })
     this.dialogRef.close();
   }
 }
