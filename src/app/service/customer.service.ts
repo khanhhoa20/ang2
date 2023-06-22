@@ -11,9 +11,11 @@ export class CustomerService {
   constructor(private http: HttpClient) {}
   url = 'http://localhost:9090/tpbank';
   loginUrl = 'customer/login';
-  cusDetailUrl = 'customer/cusdetail';
+  cusdetailUrl = 'customer/cusdetail';
   accDetailUrl = 'customer/accdetail';
   updatecusUrl = 'customer/cusupdate';
+  updateInformationUrl = 'customer/updateInformation';
+  changePasswordUrl = 'customer/changePassword';
 
   login(username: string, password: string): Observable<string> {
     return this.http.post(
@@ -27,7 +29,7 @@ export class CustomerService {
   }
 
   cusdetail(customerId: number): Observable<Customer> {
-    return this.http.put<Customer>(`${this.url}/${this.cusDetailUrl}`, {
+    return this.http.put<Customer>(`${this.url}/${this.cusdetailUrl}`, {
       customerId: customerId,
     });
   }
@@ -45,6 +47,27 @@ export class CustomerService {
   ): Observable<string> {
     return this.http.put(
       `${this.url}/${this.updatecusUrl}`,
+      {
+        customerPhone: customerPhone,
+        customerEmail: customerEmail,
+        customerAddress: customerAddress,
+        user: {
+          userName: userName,
+        },
+      },
+      {
+        responseType: 'text',
+      }
+    );
+  }
+  updateInformation(
+    customerPhone: string,
+    customerEmail: string,
+    customerAddress: string,
+    userName: string
+  ): Observable<string> {
+    return this.http.put(
+      `${this.url}/${this.updateInformationUrl}`,
       {
         customerPhone: customerPhone,
         customerEmail: customerEmail,

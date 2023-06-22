@@ -27,7 +27,6 @@ import { ChangeAccountPasswordComponent } from './customer/change-account-passwo
 // import { UpdateAccountInformationComponent } from './customer/update-account-information/update-account-information.component';
 import { TransferMoneyComponent } from './customer/transfer-money/transfer-money.component';
 
-
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -37,29 +36,29 @@ const routes: Routes = [
     children: [
       {
         path: 'view-list-customer',
-        component: ViewCustomersComponent
+        component: ViewCustomersComponent,
       },
       {
         path: 'create-bank-account',
-        component: CreateBankAccountComponent
+        component: CreateBankAccountComponent,
       },
       {
         path: 'lock-bank-account',
-        component: LockBankAccountComponent
+        component: LockBankAccountComponent,
       },
       {
         path: 'unlock-bank-account',
-        component: UnlockBankAccountComponent
+        component: UnlockBankAccountComponent,
       },
       {
         path: 'deposit-money',
-        component: DepositMoneyComponent
+        component: DepositMoneyComponent,
       },
       {
         path: 'widthraw-money',
-        component: WidthrawMoneyComponent
-      }
-    ]
+        component: WidthrawMoneyComponent,
+      },
+    ],
   },
   {
     path: 'manager',
@@ -67,34 +66,33 @@ const routes: Routes = [
     children: [
       {
         path: 'view-list-operator',
-        component: ListOperatorComponent
+        component: ListOperatorComponent,
       },
       {
         path: 'view-schedule-plan',
-        component: SchedulePlanComponent
+        component: SchedulePlanComponent,
       },
       {
         path: 'create-banking-account',
-        component: BankAccountComponent
+        component: BankAccountComponent,
       },
       {
         path: 'find-all-bank-account',
-        component: FindAllBankAccountComponent
-      }
-      , {
+        component: FindAllBankAccountComponent,
+      },
+      {
         path: 'list',
-        component: ManagerListComponent
+        component: ManagerListComponent,
       },
       {
         path: 'add-manager',
-        component: AddManagerComponent
+        component: AddManagerComponent,
       },
       {
         path: 'update-manager/:id',
-        component: UpdateManagerComponent
+        component: UpdateManagerComponent,
       },
-
-    ]
+    ],
   },
   {
     path: 'customer',
@@ -102,30 +100,27 @@ const routes: Routes = [
     children: [
       {
         path: 'cusdetail',
-        component: GetAllAccountComponent
+        component: GetAllAccountComponent,
       },
       {
         path: 'accdetail',
-        component: FindAccountByIdStkComponent
+        component: FindAccountByIdStkComponent,
       },
       {
         path: 'changepass',
-        component: ChangeAccountPasswordComponent
+        component: ChangeAccountPasswordComponent,
       },
       {
         path: 'transfermoney',
-        component: TransferMoneyComponent
+        component: TransferMoneyComponent,
       },
-      
-    ]
-  }
+    ],
+  },
   // { path: 'view-list-operator', component: OperatorComponent },
-]
+];
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule, RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule]
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
