@@ -74,6 +74,7 @@ export class ListOperatorComponent implements OnInit {
   }
 
   addOperator(operatorForm: NgForm) {
+    this.msg = ""
     this.managerService.saveOperator(
       operatorForm.value.phone,
       operatorForm.value.address,
@@ -87,11 +88,12 @@ export class ListOperatorComponent implements OnInit {
       console.log(res)
       this.msg = res
       this.ngOnInit();
+      if (this.msg.includes("successfully")) {
+        this.modalService.dismissAll();
+      }
       return res
     })
-    if (this.msg?.includes("sucessfully")) {
-      this.modalService.dismissAll();
-    }
+    
 
   }
 
